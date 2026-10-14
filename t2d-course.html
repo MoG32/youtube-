@@ -1,0 +1,1135 @@
+<title>السكر من الجذر</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;600;700&family=Reem+Kufi:wght@500;700&display=swap">
+<style>
+/* Layout: a course reader. Sticky module index on the reading side (right, RTL), one ~68ch reading column, figures break out to full column width. */
+:root{
+  --bg:#F3F6F6; --surface:#FFFFFF; --tint:#E4EEEC; --ink:#13201F; --muted:#556664; --line:#D3DEDC;
+  --accent:#0A7468; --glucose:#A9620C; --true:#2E7A33; --partly:#9A6300; --myth:#B0281E;
+  --true-bg:#E3F1E3; --partly-bg:#F7EDD8; --myth-bg:#F8E3E0;
+  --display:"Reem Kufi","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --body:"Noto Naskh Arabic","IBM Plex Sans Arabic","Times New Roman",serif;
+  --ui:"IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1615; --surface:#15201F; --tint:#1A2B29; --ink:#E2ECEA; --muted:#9BACA9; --line:#2A3B39;
+  --accent:#4CC0AE; --glucose:#E3A653; --true:#79C27D; --partly:#E3AE45; --myth:#F2837A;
+  --true-bg:#1B2E1D; --partly-bg:#2F2614; --myth-bg:#36191A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1615; --surface:#15201F; --tint:#1A2B29; --ink:#E2ECEA; --muted:#9BACA9; --line:#2A3B39;
+  --accent:#4CC0AE; --glucose:#E3A653; --true:#79C27D; --partly:#E3AE45; --myth:#F2837A;
+  --true-bg:#1B2E1D; --partly-bg:#2F2614; --myth-bg:#36191A; color-scheme:dark}
+
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.95;
+  direction:rtl;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.4;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,6vw,3.4rem);font-weight:700}
+h2{font-size:clamp(1.55rem,3.6vw,2.05rem);font-weight:700}
+h3{font-size:1.28rem;font-weight:500;margin-top:.4rem}
+h4{font-size:1.06rem;font-weight:500;font-family:var(--ui)}
+p{margin:0}
+.num{font-family:var(--ui);font-variant-numeric:tabular-nums}
+
+.page{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:250px minmax(0,1fr);gap:48px;padding-block:32px 80px}
+.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 20px);align-self:start;font-family:var(--ui);font-size:.92rem;line-height:1.6;max-height:calc(100vh - 40px);overflow-y:auto}
+.toc .label{font-size:.78rem;letter-spacing:.04em;color:var(--muted);margin-bottom:10px}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.toc a{display:grid;grid-template-columns:2.2em 1fr;gap:4px;color:var(--ink);text-decoration:none;padding:6px 8px;border-radius:6px}
+.toc a:hover{background:var(--tint)}
+.toc a span:first-child{color:var(--muted);font-variant-numeric:tabular-nums}
+.toc-mobile{display:none}
+main{min-width:0;display:grid;gap:72px}
+.col{max-width:68ch;display:grid;gap:18px}
+
+/* hero */
+.hero{display:grid;gap:22px;padding-top:12px}
+.hero .eyebrow{font-family:var(--ui);font-size:.85rem;color:var(--accent);letter-spacing:.03em}
+.hero .lede{font-size:1.18rem;color:var(--ink);max-width:62ch}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;max-width:760px}
+.stat{background:var(--surface);padding:16px 18px;display:grid;gap:4px;align-content:start}
+.stat b{font-family:var(--ui);font-size:1.9rem;font-weight:600;color:var(--glucose);font-variant-numeric:tabular-nums;line-height:1.2}
+.stat span{font-family:var(--ui);font-size:.86rem;color:var(--muted);line-height:1.5}
+.src{font-family:var(--ui);font-size:.8rem;color:var(--muted)}
+
+/* module */
+.module{display:grid;gap:22px;scroll-margin-top:24px}
+.mod-head{display:grid;gap:8px;border-top:2px solid var(--ink);padding-top:18px}
+.mod-head .eyebrow{font-family:var(--ui);font-size:.85rem;color:var(--muted)}
+.mod-head .goal{font-family:var(--ui);font-size:.98rem;color:var(--muted);max-width:66ch;line-height:1.75}
+.key{background:var(--tint);border-radius:8px;padding:16px 20px;display:grid;gap:8px}
+.key .k{font-family:var(--ui);font-size:.8rem;color:var(--accent);font-weight:600;letter-spacing:.03em}
+.key p{font-size:1.05rem}
+ul.plain,ol.plain{margin:0;padding-inline-start:1.3em;display:grid;gap:8px}
+.mark{color:var(--glucose);font-weight:700}
+
+/* evidence & verdict pills */
+.pill{font-family:var(--ui);font-size:.8rem;font-weight:600;padding:2px 10px;border-radius:999px;white-space:nowrap;display:inline-block;line-height:1.7}
+.v-true{background:var(--true-bg);color:var(--true)}
+.v-partly{background:var(--partly-bg);color:var(--partly)}
+.v-myth{background:var(--myth-bg);color:var(--myth)}
+.ev{font-family:var(--ui);font-size:.8rem;color:var(--muted);white-space:nowrap}
+.ev::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-inline-end:6px;vertical-align:middle}
+.ev.s::before{background:var(--true)} .ev.m::before{background:var(--partly)} .ev.w::before{background:var(--myth)}
+.mem{font-family:var(--ui);font-size:.72rem;color:var(--glucose);border:1px solid currentColor;border-radius:4px;padding:0 5px;margin-inline-start:4px;white-space:nowrap;vertical-align:1px}
+
+/* tables & figures */
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-family:var(--ui);font-size:.92rem;line-height:1.65}
+th,td{padding:10px 14px;text-align:start;vertical-align:top;border-bottom:1px solid var(--line)}
+th{font-weight:600;color:var(--muted);font-size:.82rem;background:var(--bg)}
+tr:last-child td{border-bottom:0}
+figure{margin:0;display:grid;gap:10px}
+figcaption{font-family:var(--ui);font-size:.85rem;color:var(--muted);line-height:1.6}
+.fig{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;overflow-x:auto}
+
+/* evidence ladder */
+.ladder{display:grid;gap:6px}
+.rung{display:grid;grid-template-columns:minmax(0,1fr);gap:2px;padding:10px 14px;border-radius:6px;background:var(--bg);font-family:var(--ui);font-size:.92rem;line-height:1.6}
+.rung b{font-weight:600}
+.rung span{color:var(--muted);font-size:.86rem}
+.rung.r6{margin-inline:0;background:color-mix(in srgb,var(--accent) 22%,var(--surface))}
+.rung.r5{margin-inline:4%;background:color-mix(in srgb,var(--accent) 16%,var(--surface))}
+.rung.r4{margin-inline:8%;background:color-mix(in srgb,var(--accent) 11%,var(--surface))}
+.rung.r3{margin-inline:12%;background:color-mix(in srgb,var(--accent) 7%,var(--surface))}
+.rung.r2{margin-inline:16%;background:color-mix(in srgb,var(--accent) 4%,var(--surface))}
+.rung.r1{margin-inline:20%;background:var(--bg)}
+
+/* organs grid */
+.organs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.organ{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:8px;align-content:start;font-family:var(--ui);font-size:.9rem;line-height:1.65}
+.organ h4{color:var(--accent)}
+.organ ul{margin:0;padding-inline-start:1.1em;display:grid;gap:4px}
+.organ .dose{font-size:.8rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:6px}
+
+/* flow chain */
+.flow{display:grid;gap:0;font-family:var(--ui);font-size:.93rem;line-height:1.6}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 14px;display:grid;gap:2px}
+.step b{font-weight:600}
+.step span{color:var(--muted);font-size:.85rem}
+.step.hot{border-color:var(--glucose)}
+.arrow{justify-self:center;color:var(--muted);font-size:1.1rem;line-height:1.6}
+
+/* svg */
+svg text{font-family:var(--ui)}
+.ax{stroke:var(--muted);stroke-width:1}
+.grid{stroke:var(--line);stroke-width:1}
+.t-muted{fill:var(--muted);font-size:12px}
+.t-ink{fill:var(--ink);font-size:13px}
+.l-acc{stroke:var(--accent);stroke-width:3;fill:none}
+.l-glu{stroke:var(--glucose);stroke-width:3;fill:none}
+.l-myth{stroke:var(--myth);stroke-width:3;fill:none}
+.l-mut{stroke:var(--muted);stroke-width:2;fill:none;stroke-dasharray:5 5}
+.f-acc{fill:var(--accent)} .f-glu{fill:var(--glucose)} .f-myth{fill:var(--myth)} .f-ink{fill:var(--ink)}
+.t-acc{fill:var(--accent);font-size:13px;font-weight:600}
+.t-glu{fill:var(--glucose);font-size:13px;font-weight:600}
+.t-myth{fill:var(--myth);font-size:13px;font-weight:600}
+
+/* quiz */
+.quiz{border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:16px 20px;display:grid;gap:10px}
+.quiz .k{font-family:var(--ui);font-size:.8rem;color:var(--muted);font-weight:600}
+details{font-family:var(--ui);font-size:.95rem;line-height:1.75}
+details summary{cursor:pointer;font-weight:500;padding:4px 0}
+details[open] summary{color:var(--accent)}
+details .ans{padding:6px 0 10px;color:var(--ink)}
+
+/* myths */
+.myths{display:grid;gap:18px}
+.myth{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;display:grid;gap:12px;scroll-margin-top:24px}
+.myth-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.myth-top .n{font-family:var(--ui);color:var(--muted);font-variant-numeric:tabular-nums;font-size:.9rem}
+.myth h3{font-family:var(--display);font-size:1.25rem;font-weight:500;margin:0;flex-basis:100%}
+.myth .lens{font-family:var(--ui);font-size:.85rem;color:var(--muted)}
+.myth .row{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:12px;font-size:.98rem;line-height:1.85}
+.myth .row > b{font-family:var(--ui);font-size:.82rem;color:var(--muted);font-weight:600;padding-top:4px}
+.myth ul{margin:0;padding-inline-start:1.1em;display:grid;gap:4px}
+.summary-table td:first-child{font-variant-numeric:tabular-nums;color:var(--muted)}
+
+.refs{font-family:var(--ui);font-size:.86rem;line-height:1.7;display:grid;gap:16px}
+.refs ol{margin:0;padding-inline-start:1.3em;display:grid;gap:4px}
+.refs .ok{color:var(--true);font-size:.75rem;border:1px solid currentColor;border-radius:4px;padding:0 5px;margin-inline-start:4px}
+
+footer{font-family:var(--ui);font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+
+@media (max-width: 900px){
+  .page{grid-template-columns:minmax(0,1fr);gap:28px;padding-block:20px 60px}
+  .toc{display:none}
+  .toc-mobile{display:block;font-family:var(--ui);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+  .toc-mobile ol{margin:8px 0 0;padding-inline-start:1.4em;display:grid;gap:4px}
+  .toc-mobile a{color:var(--ink)}
+  main{gap:56px}
+  .organs{grid-template-columns:minmax(0,1fr)}
+  .rung.r1,.rung.r2,.rung.r3,.rung.r4,.rung.r5{margin-inline:0}
+}
+@media (max-width: 560px){
+  body{font-size:16px}
+  .stats{grid-template-columns:minmax(0,1fr)}
+  .myth{padding:16px}
+  .myth .row{grid-template-columns:minmax(0,1fr);gap:2px}
+}
+</style>
+
+<div class="page">
+<nav class="toc" aria-label="فهرس الكورس">
+  <div class="label">الوحدات</div>
+  <ol>
+    <li><a href="#m0"><span>0</span><span>أدوات التفكير</span></a></li>
+    <li><a href="#m1"><span>1</span><span>الجلوكوز والطاقة</span></a></li>
+    <li><a href="#m2"><span>2</span><span>الإنسولين</span></a></li>
+    <li><a href="#m3"><span>3</span><span>مقاومة الإنسولين</span></a></li>
+    <li><a href="#m4"><span>4</span><span>من المقاومة للسكر</span></a></li>
+    <li><a href="#m5"><span>5</span><span>الأسباب</span></a></li>
+    <li><a href="#m6"><span>6</span><span>الرجوع والهدوء</span></a></li>
+    <li><a href="#m7"><span>7</span><span>تفكيك 16 خرافة</span></a></li>
+    <li><a href="#m8"><span>8</span><span>الصورة الكاملة</span></a></li>
+    <li><a href="#refs"><span>—</span><span>المراجع</span></a></li>
+  </ol>
+</nav>
+
+<main>
+<header class="hero">
+  <div class="eyebrow">كورس في فهم السكر النوع التاني ومقاومة الإنسولين</div>
+  <h1>السكر من الجذر</h1>
+  <p class="lede">الخرافة مش بتعيش على الكدب بس. بتعيش في الفراغ اللي بيسيبه الفهم السطحي. لو فهمت الإنسولين بيعمل إيه في كل عضو، وليه المقاومة بتحصل، وليه مش كل اللي عنده مقاومة بيجيله سكر، هتلاقي إن أغلب الخرافات بتتفك لوحدها. عشان كده الكورس بيبني الأساس الأول، وبعدين بيستخدمه كأداة لتفكيك 16 خرافة.</p>
+  <div class="stats" role="list">
+    <div class="stat" role="listitem"><b>22.4%</b><span>من الكبار في مصر (20 لـ 79 سنة) عندهم سكر</span></div>
+    <div class="stat" role="listitem"><b>13.2 مليون</b><span>مصري عايشين بالسكر</span></div>
+    <div class="stat" role="listitem"><b>62%</b><span>منهم مش عارفين إن عندهم سكر</span></div>
+  </div>
+  <p class="src">المصدر: أطلس الاتحاد الدولي للسكر IDF، تقديرات 2024، نسبة معدّلة حسب العمر.</p>
+
+  <details class="toc-mobile">
+    <summary>فهرس الوحدات</summary>
+    <ol start="0">
+      <li><a href="#m0">أدوات التفكير</a></li>
+      <li><a href="#m1">الجلوكوز والطاقة</a></li>
+      <li><a href="#m2">الإنسولين</a></li>
+      <li><a href="#m3">مقاومة الإنسولين</a></li>
+      <li><a href="#m4">من المقاومة للسكر</a></li>
+      <li><a href="#m5">الأسباب</a></li>
+      <li><a href="#m6">الرجوع والهدوء</a></li>
+      <li><a href="#m7">تفكيك 16 خرافة</a></li>
+      <li><a href="#m8">الصورة الكاملة</a></li>
+      <li><a href="#refs">المراجع</a></li>
+    </ol>
+  </details>
+
+  <div class="col">
+    <h4>إزاي تقرا الكورس</h4>
+    <ul class="plain">
+      <li>الوحدات مترتبة: كل وحدة بتعتمد على اللي قبلها. لو قفزت للخرافات على طول، كل خرافة فيها لينك للوحدة اللي بتفككها.</li>
+      <li>كل وحدة بتخلص بـ"اختبر نفسك": اسئلة إجاباتها مستخبية. حاول تجاوب قبل ما تفتحها.</li>
+      <li>قوة الدليل متعلّمة بلون: <span class="ev s">قوي</span> تجارب عشوائية أو تجميعها، <span class="ev m">متوسط</span> دراسات متابعة كبيرة أو تجارب صغيرة قصيرة، <span class="ev w">ضعيف</span> حالات، فئران، تجارب ضعيفة الجودة.</li>
+      <li>الأرقام اللي اتأكدت منها بالبحث وأنا بكتب الكورس متعلّمة في قايمة المراجع. أي رقم جنبه <span class="mem">من الذاكرة</span> راجعه قبل ما تستخدمه في فيديو أو منشور.</li>
+    </ul>
+  </div>
+</header>
+
+<!-- ============ MODULE 0 ============ -->
+<section class="module" id="m0">
+  <div class="mod-head">
+    <div class="eyebrow">الوحدة 0</div>
+    <h2>أدوات التفكير: إزاي تحكم على أي ادعاء صحي</h2>
+    <p class="goal">قبل ما نتكلم عن الإنسولين، محتاجين أداة. أغلب الخرافات مش بتغلط في المعلومة، بتغلط في نوع الدليل اللي بتستند عليه. الوحدة دي هي المفتاح اللي هنستخدمه في كل الكورس.</p>
+  </div>
+
+  <div class="col">
+    <h3>سُلّم الأدلة</h3>
+    <p>مش كل "دراسة" زي التانية. فيه أسئلة كل نوع دراسة يقدر يجاوب عليها، وأسئلة مايقدرش. كل ما تطلع لفوق، كل ما الدراسة تقدر تقول "ده سبب" بثقة أكبر، بس كل ما بتبقى أغلى وأصعب وأقصر غالبًا.</p>
+  </div>
+
+  <figure>
+    <div class="fig">
+      <div class="ladder">
+        <div class="rung r6"><b>تجميع تجارب عشوائية (ميتا-أناليسس)</b><span>أقوى حاجة، بشرط إن التجارب اللي جواها كويسة. تجميع 20 تجربة ضعيفة بيدّي نتيجة ضعيفة بثقة مزيفة.</span></div>
+        <div class="rung r5"><b>تجربة عشوائية محكومة (RCT)</b><span>الوحيدة اللي تقدر تقول "ده سبب ده"، لأن القرعة بتوزع كل العوامل التانية بالتساوي. عيبها: غالبًا قصيرة، والالتزام بالأكل صعب.</span></div>
+        <div class="rung r4"><b>تجارب عنابر الأيض (Metabolic ward)</b><span>ناس عايشين في المستشفى وكل لقمة متقاسة. أدق أداة لاختبار آلية، بس أيام أو أسابيع وعدد صغير.</span></div>
+        <div class="rung r3"><b>دراسات متابعة (كوهورت)</b><span>بتتابع آلاف الناس سنين. بتلاقي ارتباط، مش سببية. أحسن أداة لما التجربة مستحيلة أو غير أخلاقية.</span></div>
+        <div class="rung r2"><b>حالات وسلاسل حالات</b><span>"3 مرضى صاموا وبطّلوا إنسولين". بتولّد فكرة، مابتثبتش حاجة.</span></div>
+        <div class="rung r1"><b>خلايا وفئران ورأي خبير وقصة شخصية</b><span>بتقول "ممكن يحصل"، مش "بيحصل في البني آدم".</span></div>
+      </div>
+    </div>
+    <figcaption>كل ما تطلع لفوق، كل ما الدليل يقدر يقول "سبب" بدل "ارتباط". تجارب العنابر في النص لأنها قوية جدًا في الآلية وضعيفة في المدة.</figcaption>
+  </figure>
+
+  <div class="col">
+    <h3>الارتباط مش سببية: التلات فخاخ</h3>
+    <p><b>1. العامل المُربك.</b> الناس اللي بتاكل فاكهة كتير غالبًا بتتحرك أكتر، ومابتدخنش، ودخلها أعلى. فلما تلاقي إن آكلي الفاكهة عندهم سكر أقل، مش واضح إن الفاكهة هي السبب. الدراسات بتحاول "تعدّل" للعوامل دي، بس عمرها ما بتقدر تعدّل لكل حاجة.</p>
+    <p><b>2. السببية العكسية.</b> أوضح مثال المشروبات الدايت. في تجميع لدراسات المتابعة، كل علبة دايت يوميًا كانت مرتبطة بزيادة 25% في خطر السكر. لما الباحثين عدّلوا للوزن، الرقم نزل لـ 8%. ليه؟ لأن الناس اللي وزنها زايد أو قلقانة على السكر هي اللي بتتحول للدايت أصلًا. الخطر جه الأول، والدايت جه بعده.</p>
+    <p><b>3. تحيّز الاختيار.</b> "كل اللي أعرفهم عملوا كيتو وخفّوا" بتتجاهل اللي عملوه وفشلوا وماتكلموش.</p>
+
+    <h3>المؤشر البديل مش النتيجة اللي تهمك</h3>
+    <p>إنت مش عايز "السكر التراكمي يقل" لذاته. إنت عايز عينك وكليتك وقلبك يفضلوا سليمين وتعيش أطول. السكر التراكمي مؤشر بديل: مفيد، بس مش هو الهدف. أقوى درس في ده تجربة ACCORD: نزّلوا السكر التراكمي بشراسة لأقل من 6%، والوفيات <b>زادت</b> لدرجة إن التجربة اتوقفت بدري <span class="mem">من الذاكرة</span>. يعني رقم أحسن مش دايمًا = صحة أحسن. أي ادعاء بيقولك "الطريقة دي بتنزّل السكر أسرع" اسأله: وبعدين؟ في المضاعفات والعمر؟</p>
+
+    <h3>"مقارنة بإيه؟"</h3>
+    <p>"الكيتو نزّل السكر" ممكن تكون صح، بس مقارنة بإيه؟ لو المقارنة بنظام الشخص القديم، فأي نظام فيه أكل أقل هينزّل السكر. السؤال الحقيقي: الكيتو أحسن من نظام تاني <b>بنفس السعرات</b>؟ ده سؤال تجارب كتير غيّرت إجابته.</p>
+
+    <h3>"لحد إمتى؟"</h3>
+    <p>نتيجة 6 شهور غير نتيجة 5 سنين. هنشوف إن كذا طريقة بتبان معجزة في الأول والفرق بيدوب مع الوقت.</p>
+
+    <h3>"مين بيدفع؟"، من غير ما توقع في الفخ العكسي</h3>
+    <p>التمويل بيرفع الشك، مابيثبتش إن النتيجة غلط. فيه مصالح في كل الاتجاهات: شركات السكر، شركات الأدوية، شركات الكيتو والمكملات، جمعيات نباتية بتدعو لأجندة، وحتى باحثين عندهم كتب وكورسات. القاعدة: اعرف مين المستفيد، وبعدين ارجع للدليل نفسه. ماترفضش دراسة عشان مموّلها، ولا تصدّقها عشان "مستقلة".</p>
+
+    <h3>"الآلية المنطقية" مش دليل</h3>
+    <p>"الإنسولين بيخزّن دهون، والكربوهيدرات بترفع الإنسولين، يبقى الكربوهيدرات بتتخّن". منطقي جدًا. واتختبر في عنابر أيض، والنتيجة ماجتش زي ما المنطق قال (هنشوف ده في <a href="#myth3">الخرافة 3</a>). جسم الإنسان فيه دوائر رجوع كتير بتخلّي السلسلة المنطقية البسيطة تفشل.</p>
+  </div>
+
+  <div class="key">
+    <div class="k">قايمة الفحص: 7 أسئلة لأي ادعاء</div>
+    <ol class="plain">
+      <li>الدليل نوعه إيه، وفين على السلم؟</li>
+      <li>ده ارتباط ولا تجربة؟ ولو ارتباط، إيه العامل المُربك أو السببية العكسية المحتملة؟</li>
+      <li>النتيجة المقاسة حاجة تهمك فعلًا، ولا مؤشر بديل؟</li>
+      <li>مقارنة بإيه؟ وبنفس السعرات؟</li>
+      <li>المدة كام؟ وإيه اللي حصل بعدها؟</li>
+      <li>مين بيستفيد لو صدّقت؟ وده بيغيّر الدليل ولا بس بيخليني أدقق أكتر؟</li>
+      <li>الادعاء متسق مع الأساس الفسيولوجي، ولا محتاج الجسم يشتغل بطريقة سحرية؟</li>
+    </ol>
+  </div>
+
+  <div class="quiz">
+    <div class="k">اختبر نفسك</div>
+    <details><summary>دراسة لقت إن اللي بيشربوا قهوة عندهم سكر أقل. تقدر تقول إن القهوة بتحمي من السكر؟</summary><div class="ans">لأ، ده ارتباط. ممكن يكون صح، بس محتاج تسأل: شاربين القهوة بيختلفوا في إيه تاني؟ (دخل، حركة، تدخين، عمر). ومحتاج تجربة عشوائية تثبته، وأغلب التجارب على القهوة قصيرة وعلى مؤشرات بديلة.</div></details>
+    <details><summary>دوا نزّل السكر التراكمي 1.5% في 3 شهور. ده كفاية تحكم إنه دوا كويس؟</summary><div class="ans">لأ. ده مؤشر بديل. محتاج تعرف أثره على المضاعفات والوفيات وأعراضه الجانبية على المدى الطويل. درس ACCORD إن تنزيل الرقم بشراسة ممكن يضر.</div></details>
+    <details><summary>ليه تجارب عنابر الأيض قوية وضعيفة في نفس الوقت؟</summary><div class="ans">قوية لأنها بتتحكم في كل لقمة، فبتختبر الآلية بدقة. ضعيفة لأنها أيام أو أسابيع على عدد صغير، فماتقولش حاجة عن اللي بيحصل في سنين من الحياة العادية.</div></details>
+  </div>
+</section>
+
+<!-- ============ MODULE 1 ============ -->
+<section class="module" id="m1">
+  <div class="mod-head">
+    <div class="eyebrow">الوحدة 1</div>
+    <h2>الجلوكوز والطاقة: الجسم كنظام تخزين وتوزيع</h2>
+    <p class="goal">الهدف: تفهم إن الجسم مخزن طاقة بيتملي ويفضى كل يوم، وإن السكر في الحقيقة مشكلة في إدارة المخزن ده، مش مشكلة "سكر" بس.</p>
+  </div>
+
+  <div class="col">
+    <h3>معلقة واحدة</h3>
+    <p>دمك كله، حوالي 5 لتر، فيه في أي لحظة حوالي 4 لـ 5 جرام جلوكوز بس <span class="mem">من الذاكرة</span>. ده تقريبًا معلقة شاي صغيرة. وجبة كشري فيها ممكن 80 لـ 100 جرام كربوهيدرات. يعني كل وجبة بتدخّل في الدم أضعاف اللي فيه، والجسم لازم يشيلها من الدم بسرعة ويحطها في مكان. لو ماعملش كده، الجلوكوز في الدم هيعلى لمستويات بتأذي الأوعية والأعصاب.</p>
+    <p>ده أهم إحساس بالحجم في الكورس كله: الدم مش مخزن، الدم طريق. والمخازن الحقيقية في أماكن تانية.</p>
+
+    <h3>المخازن التلاتة</h3>
+  </div>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>المخزن</th><th>فين</th><th>سعته التقريبية</th><th>بيخدم مين</th></tr></thead>
+      <tbody>
+        <tr><td>جليكوجين الكبد</td><td>الكبد</td><td>حوالي 100 جرام <span class="mem">من الذاكرة</span></td><td>الجسم كله. الكبد هو الوحيد اللي بيقدر يطلّع جلوكوز للدم ويحافظ على مستواه بين الوجبات وبالليل.</td></tr>
+        <tr><td>جليكوجين العضلات</td><td>العضلات</td><td>حوالي 400 جرام <span class="mem">من الذاكرة</span></td><td>العضلة نفسها بس. العضلة مش بترجّع جلوكوز للدم (ناقصها إنزيم جلوكوز-6-فوسفاتيز).</td></tr>
+        <tr><td>الدهون</td><td>تحت الجلد، حوالين الأعضاء، وأماكن غلط</td><td>عشرات الآلاف من السعرات حتى عند الشخص الرفيع</td><td>الجسم كله، كأحماض دهنية، والكبد بيحوّل جزء منها لكيتونات وقت الصيام.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col">
+    <p>لاحظ الفرق في الحجم: مخازن الجليكوجين كلها حوالي 2000 سعر، يعني يوم أكل. مخزن الدهون ممكن يكون 100 ألف سعر. لما الجليكوجين يتملي، أي فائض بيتجه للدهون. وده هيبقى مهم جدًا: <b>المشكلة مش في دخول الطاقة، المشكلة في المكان اللي بتتخزن فيه لما المخازن الآمنة تتملي.</b></p>
+
+    <h3>وضعين: شبعان وصايم</h3>
+    <p>الجسم عنده ناقل حركة بسرعتين:</p>
+    <ul class="plain">
+      <li><b>بعد الأكل (وضع التخزين):</b> الجلوكوز داخل. الكبد يوقف إنتاج الجلوكوز ويخزّن. العضلات تسحب وتخزّن. الدهون تقفل باب السحب وتفتح باب التخزين.</li>
+      <li><b>بين الوجبات وبالليل (وضع السحب):</b> الكبد يطلّع جلوكوز من الجليكوجين ويصنع جلوكوز جديد. الدهون تفتح باب السحب وتطلّع أحماض دهنية. العضلات تشتغل على الدهون عشان توفّر الجلوكوز للمخ.</li>
+      <li><b>صيام طويل (أيام):</b> الجليكوجين يخلص، الكبد يصنّع كيتونات من الدهون، والمخ يبدأ يعتمد عليها جزئيًا.</li>
+    </ul>
+    <p>المخ بياكل حوالي 120 جرام جلوكوز في اليوم <span class="mem">من الذاكرة</span>، وده سبب إن الجسم بيحرس مستوى السكر في الدم بشراسة. نزول السكر أخطر على المدى القصير من ارتفاعه.</p>
+  </div>
+
+  <div class="key">
+    <div class="k">الفكرة اللي هنبني عليها</div>
+    <p>الجسم نظام بيخزّن ويوزّع. السكر النوع التاني هو في جوهره فشل في إدارة المخازن: الطاقة بتتخزن في المكان الغلط، والإشارة اللي بتنظّم التخزين مابقتش مسموعة، والمصنع اللي بيطلّع الإشارة اتعب.</p>
+  </div>
+
+  <div class="quiz">
+    <div class="k">اختبر نفسك</div>
+    <details><summary>ليه الكبد مهم في السكر أكتر من العضلات وقت الصيام؟</summary><div class="ans">لأن الكبد هو العضو الأساسي اللي بيقدر يطلّع جلوكوز للدم. العضلة بتخزن لنفسها بس. فلو الكبد طلّع جلوكوز أكتر من اللازم بالليل، السكر الصايم يعلى، وده اللي بيحصل في السكر النوع التاني.</div></details>
+    <details><summary>لو الدم فيه 5 جرام جلوكوز بس، ليه وجبة فيها 100 جرام مابتموّتش الإنسان؟</summary><div class="ans">لأن الجلوكوز بيدخل على مدار ساعات مش مرة واحدة، والإنسولين بيشيله بسرعة للكبد والعضلات والدهون. السكر مشكلة لما الشيل ده يبطّأ.</div></details>
+  </div>
+</section>
+
+<!-- ============ MODULE 2 ============ -->
+<section class="module" id="m2">
+  <div class="mod-head">
+    <div class="eyebrow">الوحدة 2</div>
+    <h2>الإنسولين: الإشارة اللي بتقول "فيه أكل، خزّن ووقّف السحب"</h2>
+    <p class="goal">الهدف: تفهم إن الإنسولين مش "هرمون تخين" ولا "عدو". هو إشارة تنسيق بتقول لكل عضو يعمل حاجة مختلفة، وكل عضو محتاج كمية مختلفة منه.</p>
+  </div>
+
+  <div class="col">
+    <h3>المصنع</h3>
+    <p>الإنسولين بيتصنع في خلايا بيتا، جوه جزر صغيرة متفرقة في البنكرياس اسمها جزر لانجرهانز. الجزر دي نسبة صغيرة جدًا من البنكرياس. جنب خلايا بيتا فيه خلايا ألفا اللي بتصنع الجلوكاجون، الهرمون اللي بيعمل العكس: بيقول للكبد "طلّع جلوكوز".</p>
+
+    <h3>إيه اللي بيشغّل الإنسولين؟</h3>
+    <ul class="plain">
+      <li><b>الجلوكوز:</b> المحرّك الأساسي. خلية بيتا بتحس بالجلوكوز وتفرز بالنسبة له.</li>
+      <li><b>البروتين:</b> الأحماض الأمينية بترفع الإنسولين كمان. في قياسات "مؤشر الإنسولين" للأكلات، اللحمة والسمك رفعوا الإنسولين بدرجة قريبة من بعض النشويات <span class="mem">من الذاكرة</span>. يعني فكرة "الإنسولين = كربوهيدرات بس" غلط من أساسها.</li>
+      <li><b>هرمونات الأمعاء (الإنكريتينات):</b> لما تاكل، الأمعاء بتفرز GLP-1 وGIP اللي بيقولوا للبنكرياس "جاي أكل، جهّز". عشان كده الجلوكوز بالبق بيطلّع إنسولين أكتر من نفس الكمية في الوريد. وده الأساس اللي اتبنى عليه أوزمبيك وأخواته.</li>
+    </ul>
+
+    <h3>الإنسولين بيعمل إيه في كل عضو</h3>
+    <p>هنا أهم نقطة في الوحدة: الإنسولين رسالة واحدة، بس كل عضو بيفهمها بطريقة مختلفة، ومحتاج كمية مختلفة عشان يستجيب.</p>
+  </div>
+
+  <figure>
+    <div class="organs">
+      <div class="organ">
+        <h4>النسيج الدهني</h4>
+        <ul>
+          <li><b>يقفل باب السحب:</b> يوقف تكسير الدهون (lipolysis).</li>
+          <li>يساعد في تخزين الدهون الجاية من الأكل.</li>
+        </ul>
+        <div class="dose">أكتر نسيج حساس للإنسولين. كمية صغيرة جدًا كفاية تقفل السحب.</div>
+      </div>
+      <div class="organ">
+        <h4>الكبد</h4>
+        <ul>
+          <li><b>يوقف إنتاج الجلوكوز:</b> أهم أثر بالليل وبين الوجبات.</li>
+          <li>يخزّن جليكوجين.</li>
+          <li>يشغّل تصنيع الدهون من الفائض (DNL).</li>
+        </ul>
+        <div class="dose">حساسية متوسطة. الإنسولين بيوصله من البنكرياس على طول بتركيز أعلى من باقي الجسم.</div>
+      </div>
+      <div class="organ">
+        <h4>العضلات</h4>
+        <ul>
+          <li><b>يفتح الباب:</b> يحرّك ناقلات GLUT4 لسطح الخلية فيدخل الجلوكوز.</li>
+          <li>يخزّن جليكوجين، ويساعد بناء البروتين.</li>
+        </ul>
+        <div class="dose">محتاجة أعلى كمية. وهي أكبر مستهلك للجلوكوز بعد الأكل.</div>
+      </div>
+    </div>
+    <figcaption>الإنسولين نفسه، تلات أعضاء، تلات استجابات، وتلات مستويات حساسية. المخ مش في الصورة لأنه بيدخّل الجلوكوز من غير ما يستنى الإنسولين.</figcaption>
+  </figure>
+
+  <div class="col">
+    <h3>ليه اختلاف الحساسية ده مهم؟</h3>
+    <p>عشان بيفسّر حاجات كتير هتقابلنا. مثلًا: في السكر النوع التاني، حتى لما الإنسولين مايكفيش يدخّل الجلوكوز للعضلات، غالبًا بيفضل كفاية يقفل تكسير الدهون. عشان كده الحماض الكيتوني الخطير نادر في النوع التاني، ومنتشر في النوع الأول اللي فيه الإنسولين شبه صفر.</p>
+    <p>ونفس الفكرة هتفسّر بعدين حاجة اسمها "المقاومة الانتقائية" في الكبد: الكبد ممكن يبقى مقاوم في حتة ومش مقاوم في حتة تانية.</p>
+
+    <h3>الإنسولين العالي: سبب ولا رد فعل؟</h3>
+    <p>عند أغلب الناس اللي عندهم مقاومة، الإنسولين العالي بيبدأ كـ<b>تعويض</b>: الأعضاء بقت سمعها تقيل، فالبنكرياس بيعلّي صوته. ده زي ما تزوّد صوتك في أوضة فيها دوشة. السؤال اللي هنرجعله في <a href="#myth3">الخرافة 3</a>: هل الصوت العالي نفسه ممكن يكون سبب الدوشة؟ فيه أدلة إن ده ممكن يحصل جزئيًا، بس مش هو البداية عند معظم الناس.</p>
+  </div>
+
+  <div class="key">
+    <div class="k">الفكرة اللي هنبني عليها</div>
+    <p>الإنسولين مش عدو. هو المايسترو اللي بيقول لكل عضو يخزّن ويوقف السحب. المرض بيبدأ لما الأعضاء ماتسمعهوش كويس (مقاومة)، وبيظهر لما المايسترو نفسه يتعب (فشل خلايا بيتا).</p>
+  </div>
+
+  <div class="quiz">
+    <div class="k">اختبر نفسك</div>
+    <details><summary>واحد قال "أنا باكل لحمة بس عشان الإنسولين مايعلاش". إيه الغلط؟</summary><div class="ans">البروتين بيرفع الإنسولين هو كمان. والأهم إن الإنسولين مش العدو، الإنسولين العالي غالبًا رد فعل للمقاومة مش سببها.</div></details>
+    <details><summary>ليه الحماض الكيتوني نادر في السكر النوع التاني؟</summary><div class="ans">لأن النسيج الدهني حساس جدًا للإنسولين، فحتى الكمية القليلة اللي البنكرياس لسه بيطلّعها بتكفي تقفل تكسير الدهون وتمنع فيضان الكيتونات.</div></details>
+    <details><summary>ليه الجلوكوز بالبق بيطلّع إنسولين أكتر من الوريد؟</summary><div class="ans">بسبب هرمونات الأمعاء (GLP-1 وGIP) اللي بتنبّه البنكرياس إن فيه أكل جاي. ده "أثر الإنكريتين".</div></details>
+  </div>
+</section>
+
+<!-- ============ MODULE 3 ============ -->
+<section class="module" id="m3">
+  <div class="mod-head">
+    <div class="eyebrow">الوحدة 3</div>
+    <h2>مقاومة الإنسولين: يعني إيه بالظبط، وليه بتحصل؟</h2>
+    <p class="goal">الهدف: تبطّل تشوف المقاومة كحاجة واحدة غامضة. هي مقاومة مختلفة في كل عضو، وليها آلية معروفة بأدلة قوية في الإنسان: دهون اتخزنت في مكان مش مكانها.</p>
+  </div>
+
+  <div class="col">
+    <h3>التعريف البسيط</h3>
+    <p>مقاومة الإنسولين يعني إن نفس كمية الإنسولين بقت بتعمل أثر أقل. العضو "سمعه تقيل". النتيجة: البنكرياس لازم يطلّع إنسولين أكتر عشان يوصل لنفس النتيجة. طول ما البنكرياس قادر يعوّض، السكر في الدم بيفضل طبيعي. المقاومة لوحدها مش سكر.</p>
+
+    <h3>المقاومة مش حاجة واحدة</h3>
+    <p>أهم تجربة تفهّمك ده عملها فريق جيرالد شولمان في جامعة ييل سنة 2005. أخدوا 8 مرضى سكر نوع تاني عندهم سمنة، وخلّوهم يخسروا حوالي 8 كيلو بس. اللي حصل:</p>
+  </div>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>المقياس</th><th>قبل</th><th>بعد خسارة ~8 كيلو</th></tr></thead>
+      <tbody>
+        <tr><td>دهون الكبد</td><td class="num">12.2%</td><td>نزلت <b class="num">81%</b></td></tr>
+        <tr><td>السكر الصايم</td><td class="num">8.8 مللي مول/لتر (~158 مجم)</td><td class="num">6.4 (~115 مجم)</td></tr>
+        <tr><td>قدرة الإنسولين على إيقاف إنتاج الجلوكوز من الكبد</td><td class="num">29%</td><td class="num">99%</td></tr>
+        <tr><td>حساسية العضلات للإنسولين</td><td>ضعيفة</td><td><b>ماتغيرتش</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col">
+    <p class="src">Petersen et al., Diabetes 2005. تجربة صغيرة، من غير مجموعة مقارنة عشوائية، بس القياسات دقيقة جدًا.</p>
+    <p>الدرس: دهون الكبد نزلت، فمقاومة الكبد اتصلحت تقريبًا بالكامل، والسكر الصايم نزل. بس العضلات فضلت زي ما هي. يعني <b>مقاومة الكبد ومقاومة العضلات حاجتين مختلفتين، ليهم أسباب مختلفة، وبيتصلحوا بطرق مختلفة.</b> الكبد بيتصلح بخسارة دهون الكبد. العضلات بتتصلح أكتر بالحركة.</p>
+
+    <h3>لغز الكبد: مقاوم ومش مقاوم في نفس الوقت</h3>
+    <p>في السكر النوع التاني، الكبد مقاوم للإنسولين في حتة "وقّف إنتاج الجلوكوز"، فبيفضل يطلّع جلوكوز بالليل والسكر الصايم يعلى. بس في نفس الوقت، الكبد لسه بيستجيب للإنسولين في حتة "اصنع دهون". والإنسولين عالي (تعويض)، فالكبد بيصنع دهون أكتر. النتيجة: سكر عالي، ودهون ثلاثية عالية، وكبد دهني. ده اسمه "المقاومة الانتقائية" <span class="mem">من الذاكرة: Brown &amp; Goldstein 2008</span>. وده بيوضح ليه كلمة "مقاومة" لوحدها مبسّطة زيادة.</p>
+
+    <h3>الآلية: دهون في المكان الغلط</h3>
+    <p>إيه اللي بيخلّي خلية الكبد أو العضلة "سمعها تقيل"؟ أقوى تفسير بأدلة في الإنسان:</p>
+  </div>
+
+  <figure>
+    <div class="fig">
+      <div class="flow">
+        <div class="step"><b>دهون زيادة جوه خلية الكبد أو العضلة</b><span>مش الدهون المخزنة بأمان تحت الجلد، دي دهون في خلايا مش مصممة تخزنها</span></div>
+        <div class="arrow" aria-hidden="true">↓</div>
+        <div class="step"><b>تراكم مركّب اسمه DAG (داي أسيل جليسرول)</b><span>وسيط في تصنيع وتكسير الدهون بيتراكم لما الخلية تتزحم</span></div>
+        <div class="arrow" aria-hidden="true">↓</div>
+        <div class="step"><b>تنشيط إنزيمات PKC (إبسيلون في الكبد، ثيتا في العضلة)</b><span>إنزيمات "مكابح" بتتشغل بالـ DAG</span></div>
+        <div class="arrow" aria-hidden="true">↓</div>
+        <div class="step hot"><b>تعطيل إشارة الإنسولين جوه الخلية</b><span>المستقبل موجود والإنسولين واصل، بس الرسالة مابتعدّيش</span></div>
+      </div>
+    </div>
+    <figcaption>مسار DAG وPKC، أكتر آلية مدعومة بأدلة في الإنسان (Samuel &amp; Shulman, Cell 2012؛ Petersen &amp; Shulman, Physiol Rev 2018 <span class="mem">من الذاكرة</span>). فيه آليات تانية مساهمة زي السيراميدات والالتهاب، والعلماء لسه مختلفين على وزن كل واحدة.</figcaption>
+  </figure>
+
+  <div class="col">
+    <h3>طب ليه الدهون بتروح المكان الغلط؟ نظرية فيضان الخزان</h3>
+    <p>الدهون تحت الجلد هي الخزان الآمن. طول ما الخزان ده عنده مكان، الفائض بيتخزن فيه ومابيأذيش. لما الخزان يتملي أو مايقدرش يكبر، الفائض <b>بيفيض</b> لأماكن مش مصممة له: الكبد، العضلات، البنكرياس، وحوالين الأعضاء في البطن.</p>
+    <p>الدليل الأقوى على الفكرة دي جاي من الحالات المتطرفة:</p>
+    <ul class="plain">
+      <li><b>ضمور الدهون (Lipodystrophy):</b> ناس عندهم عيب وراثي بيخليهم تقريبًا من غير نسيج دهني. المتوقع حسب "الدهون هي المشكلة" إنهم يبقوا أصحاء جدًا. اللي بيحصل العكس: مقاومة إنسولين شديدة، كبد دهني، وسكر. مفيش خزان آمن، فكل الدهون بتروح المكان الغلط.</li>
+      <li><b>زرع دهون في فئران من غير دهون</b> صلّح السكر عندهم <span class="mem">من الذاكرة: Gavrilova 2000</span>. يعني إضافة خزان آمن عالجت المقاومة.</li>
+      <li><b>فئران معدلة تكبّر الخزان الآمن</b> (بتفرز أديبونكتين أكتر) بقت تخينة جدًا وأيضها سليم <span class="mem">من الذاكرة: Kim 2007</span>.</li>
+      <li><b>دوا البيوجليتازون</b> بيحسّن المقاومة، مع إنه بيزوّد الوزن، لأنه بيشجع التخزين تحت الجلد بدل الكبد.</li>
+    </ul>
+    <p>النتيجة اللي بتغيّر طريقة التفكير: <b>السؤال مش "عندك دهون قد إيه؟"، السؤال "الدهون بتتخزن فين، وخزانك الآمن فاضي فيه قد إيه؟"</b>. ده بيفسّر ليه ناس تخينة جدًا أيضها سليم، وليه ناس وزنها عادي يجيلهم سكر، وليه الآسيويين والشرق أوسطيين بيجيلهم سكر عند وزن أقل.</p>
+
+    <h3>عوامل تانية بتزوّد المقاومة</h3>
+    <ul class="plain">
+      <li><b>قلة الحركة:</b> العضلات هي المستهلك الأكبر للجلوكوز بعد الأكل. العضلة الشغالة بتسحب جلوكوز بطريق تاني مش محتاج إنسولين، وأثر التمرين بيفضل ساعات لحد يوم أو اتنين.</li>
+      <li><b>قلة النوم:</b> تجربة على شباب أصحاء نامو 4 ساعات لمدة 6 ليالي: تحمّلهم للجلوكوز قل بشكل واضح <span class="mem">من الذاكرة: Spiegel 1999</span>.</li>
+      <li><b>الأدوية:</b> الكورتيزون أوضح مثال.</li>
+      <li><b>الالتهاب:</b> النسيج الدهني اللي اتزحم بيجذب خلايا مناعية وبيطلّع إشارات التهاب بتزوّد المقاومة.</li>
+    </ul>
+
+    <h3>مش كل مقاومة مرض</h3>
+    <p>فيه مقاومة طبيعية ومفيدة:</p>
+    <ul class="plain">
+      <li><b>الحمل:</b> جسم الأم بيعمل مقاومة عشان يوجّه الجلوكوز للجنين.</li>
+      <li><b>الصيام الطويل والكيتو:</b> لما الكربوهيدرات تقل جدًا، العضلات بتعمل مقاومة "فسيولوجية" عشان توفّر الجلوكوز للمخ. عشان كده واحد ماشي على كيتو ممكن يعمل تحليل منحنى سكر وتطلع النتيجة وحشة، مع إنه مش مريض. ده هيفرق جدًا في <a href="#myth4">خرافة الكيتو</a>.</li>
+    </ul>
+
+    <h3>إزاي بنقيس المقاومة؟</h3>
+  </div>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>الطريقة</th><th>إيه هي</th><th>قيمتها الحقيقية</th></tr></thead>
+      <tbody>
+        <tr><td>الكلامب (Clamp)</td><td>تثبيت الإنسولين والجلوكوز بالوريد ساعات وقياس الجلوكوز اللازم</td><td>المعيار الذهبي. للأبحاث بس.</td></tr>
+        <tr><td>منحنى السكر (OGTT)</td><td>شرب 75 جرام جلوكوز وقياس السكر بعد ساعتين، وأحيانًا الإنسولين</td><td>مفيد جدًا وبيكشف حالات السكر الصايم مش بيكشفها.</td></tr>
+        <tr><td>HOMA-IR</td><td>معادلة من السكر والإنسولين الصايمين</td><td>كويس للمقارنة بين مجموعات. ضعيف للفرد: تحليل الإنسولين مش موحّد بين المعامل، ومفيش حد قاطع متفق عليه.</td></tr>
+        <tr><td>علامات غير مباشرة</td><td>محيط الوسط، الدهون الثلاثية عالية مع HDL واطي، كبد دهني في السونار، تاريخ عائلي</td><td>رخيصة وعملية وبتدي صورة كويسة.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="key">
+    <div class="k">الفكرة اللي هنبني عليها</div>
+    <p>مقاومة الإنسولين في أغلب الناس هي عَرَض لفيضان الخزان الآمن: الطاقة الزيادة بتتخزن دهون في الكبد والعضلات، والدهون دي بتعطّل إشارة الإنسولين جوه الخلية. ونفس الآلية بتشتغل بالعكس: لما الدهون دي تقل، المقاومة بتقل.</p>
+  </div>
+
+  <div class="quiz">
+    <div class="k">اختبر نفسك</div>
+    <details><summary>ناس عندهم ضمور دهون وراثي ومن غير دهون تقريبًا عندهم سكر شديد. ده بيقولنا إيه؟</summary><div class="ans">إن المشكلة مش الدهون في ذاتها، المشكلة إن مفيش خزان آمن، فالدهون بتروح الكبد والعضلات وتعمل مقاومة. ده أقوى دليل على نظرية فيضان الخزان.</div></details>
+    <details><summary>في تجربة شولمان، ليه السكر الصايم نزل مع إن العضلات فضلت مقاومة؟</summary><div class="ans">لأن السكر الصايم بيتحدد أساسًا بإنتاج الكبد للجلوكوز بالليل. لما دهون الكبد نزلت، الإنسولين رجع يقدر يوقف إنتاج الكبد، فالسكر الصايم نزل.</div></details>
+    <details><summary>واحد عمل HOMA-IR في معمل وطلع 2.8 وقالوله "عندك مقاومة". المعلومة دي تستاهل قد إيه؟</summary><div class="ans">قليل لوحدها. الرقم بيختلف حسب المعمل وطريقة تحليل الإنسولين، ومفيش حد متفق عليه. محيط الوسط والدهون الثلاثية والسونار ومنحنى السكر بيدّوا صورة أوضح.</div></details>
+  </div>
+</section>
+
+<!-- ============ MODULE 4 ============ -->
+<section class="module" id="m4">
+  <div class="mod-head">
+    <div class="eyebrow">الوحدة 4</div>
+    <h2>من المقاومة للسكر: ليه مش كل اللي عنده مقاومة بيجيله سكر؟</h2>
+    <p class="goal">الهدف: تفهم إن السكر النوع التاني بيحتاج حاجتين مع بعض: مقاومة، وبنكرياس مش قادر يعوّض. والتانية دي هي اللي بتفرق بين ناس عندهم نفس الوزن.</p>
+  </div>
+
+  <div class="col">
+    <h3>المعادلة</h3>
+    <p>أغلب الناس اللي عندهم سمنة ومقاومة <b>مش</b> بيجيلهم سكر. ليه؟ لأن خلايا بيتا بتعوّض: بتطلّع إنسولين أكتر، والسكر يفضل طبيعي. السكر بيظهر لما خلايا بيتا ماتقدرش تكمّل التعويض. العلاقة بين الحساسية والإفراز شكلها منحنى: كل ما الحساسية تقل، الإفراز لازم يزيد بنفس النسبة عشان تفضل على نفس المنحنى.</p>
+  </div>
+
+  <figure>
+    <div class="fig">
+      <svg viewBox="0 0 520 340" width="100%" style="direction:ltr" role="img" aria-label="منحنى العلاقة بين حساسية الإنسولين وإفرازه: شخص بيعوّض بيفضل على منحنى السكر الطبيعي، ولما خلايا بيتا تفشل بينزل لمنحنى السكر">
+        <line class="ax" x1="60" y1="290" x2="495" y2="290"/>
+        <line class="ax" x1="60" y1="290" x2="60" y2="30"/>
+        <path class="l-acc" d="M60.0,73.0 L72.0,116.4 L83.9,145.3 L95.8,166.0 L107.8,181.5 L119.8,193.6 L131.7,203.2 L143.6,211.1 L155.6,217.7 L167.6,223.2 L179.5,228.0 L191.4,232.1 L203.4,235.8 L215.3,238.9 L227.3,241.8 L239.2,244.3 L251.2,246.6 L263.1,248.7 L275.1,250.5 L287.0,252.3 L299.0,253.8 L310.9,255.3 L322.9,256.6 L334.8,257.9 L346.8,259.0 L358.8,260.1 L370.7,261.1 L382.6,262.0 L394.6,262.9 L406.5,263.7 L418.5,264.5 L430.4,265.2 L442.4,265.9 L454.3,266.5 L466.3,267.2 L478.2,267.7 L490.2,268.3"/>
+        <path class="l-myth" d="M60.0,181.5 L72.0,203.2 L83.9,217.7 L95.8,228.0 L107.8,235.8 L119.8,241.8 L131.7,246.6 L143.6,250.5 L155.6,253.8 L167.6,256.6 L179.5,259.0 L191.4,261.1 L203.4,262.9 L215.3,264.5 L227.3,265.9 L239.2,267.2 L251.2,268.3 L263.1,269.3 L275.1,270.3 L287.0,271.1 L299.0,271.9 L310.9,272.6 L322.9,273.3 L334.8,273.9 L346.8,274.5 L358.8,275.0 L370.7,275.5 L382.6,276.0 L394.6,276.4 L406.5,276.8 L418.5,277.2 L430.4,277.6 L442.4,277.9 L454.3,278.3 L466.3,278.6 L478.2,278.9 L490.2,279.1"/>
+        <path class="l-mut" d="M394.6,262.9 C300,250 160,215 112,186"/>
+        <line x1="107.8" y1="186" x2="107.8" y2="228" style="stroke:var(--myth);stroke-width:2"/>
+        <circle cx="394.6" cy="262.9" r="6" class="f-acc"/>
+        <circle cx="107.8" cy="181.5" r="6" class="f-glu"/>
+        <circle cx="107.8" cy="235.8" r="6" class="f-myth"/>
+        <text x="400" y="248" class="t-acc" text-anchor="middle">أ: حساس</text>
+        <text x="122" y="168" class="t-glu" text-anchor="start">ب: مقاوم بس بيعوّض</text>
+        <line x1="110" y1="242" x2="118" y2="294" style="stroke:var(--myth);stroke-width:1"/><text x="122" y="306" class="t-myth" text-anchor="start">ج: بيتا تعبت = سكر</text>
+        <line x1="470" y1="42" x2="490" y2="42" class="l-acc"/><text x="464" y="47" class="t-acc" text-anchor="end">منحنى سكر طبيعي</text>
+        <line x1="470" y1="66" x2="490" y2="66" class="l-myth"/><text x="464" y="71" class="t-myth" text-anchor="end">منحنى سكر</text>
+        
+        <text x="380" y="332" class="t-muted" text-anchor="middle">حساسية الإنسولين: بتزيد ناحية اليمين</text>
+        <text x="40" y="160" class="t-muted" text-anchor="middle" transform="rotate(-90 40 160)">إفراز الإنسولين: بيزيد لفوق</text>
+      </svg>
+    </div>
+    <figcaption>رسم توضيحي للفكرة، مش بيانات حقيقية. الشخص (أ) بيكسب وزن وتقل حساسيته فبيتحرك على نفس المنحنى لـ (ب): إنسولين أعلى، وسكر طبيعي. لما خلايا بيتا ماتقدرش تكمّل، بينزل لـ (ج) على منحنى أوطى، وده السكر. الفكرة دي اسمها "مؤشر التصرّف" <span class="mem">من الذاكرة: Kahn 1993</span>.</figcaption>
+  </figure>
+
+  <div class="col">
+    <h3>الوراثة بتحدد قوة المصنع</h3>
+    <p>الدراسات على التوائم بتقدّر إن الوراثة مسؤولة عن نسبة كبيرة من الاختلاف في خطر السكر النوع التاني: حوالي <b>72%</b> في تحليل لأكتر من 34 ألف زوج توائم (Willemsen 2015). الرقم ده غالبًا مبالغ فيه شوية لأن دراسات التوائم بتفترض إن التوائم المتطابقة والمختلفة بيعيشوا في نفس البيئة بالظبط. بس الرسالة واضحة: الوراثة مهمة جدًا.</p>
+    <p>والمهم أكتر: أغلب الجينات اللي اتلقت مرتبطة بالسكر النوع التاني (أكتر من 200 موضع جيني) بتأثّر على <b>خلايا بيتا</b> مش على المقاومة <span class="mem">من الذاكرة: Mahajan 2018</span>. يعني الوراثة غالبًا بتحدد قد إيه مصنعك يقدر يستحمل قبل ما يتعب. البيئة بتحدد قد إيه هتضغط عليه.</p>
+
+    <h3>الفيلم البطيء: 10 سنين قبل التشخيص</h3>
+    <p>دراسة Whitehall II في بريطانيا تابعت 6,538 موظف حكومي حوالي 10 سنين، 505 منهم جالهم سكر. الباحثين رجعوا بالزمن وشافوا إيه اللي كان بيحصل قبل التشخيص:</p>
+  </div>
+
+  <figure>
+    <div class="fig">
+      <svg viewBox="0 0 520 300" width="100%" style="direction:ltr" role="img" aria-label="رسم توضيحي: حساسية الإنسولين بتقل بسرعة في آخر 5 سنين، وظيفة خلايا بيتا بتزيد ثم بتنهار في آخر 3 سنين، والسكر الصايم بيقفز في آخر 3 سنين قبل التشخيص">
+        <line class="grid" x1="328.5" y1="40" x2="328.5" y2="255"/>
+        <line class="grid" x1="393.1" y1="40" x2="393.1" y2="255"/>
+        <line class="ax" x1="70" y1="255" x2="495" y2="255"/>
+        <line x1="490" y1="40" x2="490" y2="255" style="stroke:var(--ink);stroke-width:1.5;stroke-dasharray:3 3"/>
+        <path class="l-acc" d="M70.0,90.0 L134.6,93.2 L199.2,96.4 L263.8,99.6 L328.5,102.8 L344.6,111.3 L360.8,119.8 L376.9,128.3 L393.1,136.8 L409.2,145.3 L425.4,153.8 L441.5,162.3 L457.7,170.8 L473.8,179.3 L490.0,187.8"/>
+        <path class="l-mut" style="stroke:var(--ink)" d="M70.0,140.0 L134.6,138.8 L199.2,137.6 L263.8,136.4 L328.5,135.2 L344.6,134.9 L352.7,127.9 L360.8,120.9 L368.8,113.9 L376.9,106.9 L385.0,99.9 L393.1,102.5 L409.2,112.5 L425.4,122.5 L441.5,132.5 L457.7,142.5 L473.8,152.5 L490.0,162.5"/>
+        <path class="l-glu" d="M70.0,206.0 L134.6,203.6 L199.2,201.2 L263.8,198.8 L328.5,196.4 L393.1,194.0 L401.2,193.3 L409.2,191.2 L417.3,187.8 L425.4,183.0 L433.5,176.8 L441.5,169.2 L449.6,160.3 L457.7,150.0 L465.8,138.3 L473.8,125.2 L481.9,110.8 L490.0,95.0"/>
+        <text x="75" y="80" class="t-acc" text-anchor="start">حساسية الإنسولين</text>
+        <text x="75" y="130" class="t-ink" text-anchor="start" style="font-weight:600">وظيفة خلايا بيتا</text>
+        <text x="75" y="226" class="t-glu" text-anchor="start">السكر الصايم</text>
+        <text x="70" y="274" class="t-muted" text-anchor="middle">-13</text>
+        <text x="328.5" y="274" class="t-muted" text-anchor="middle">-5</text>
+        <text x="393.1" y="274" class="t-muted" text-anchor="middle">-3</text>
+        <text x="490" y="274" class="t-muted" text-anchor="middle">0</text>
+        <text x="490" y="32" class="t-ink" text-anchor="middle">التشخيص</text>
+        <text x="280" y="294" class="t-muted" text-anchor="middle">سنين قبل التشخيص</text>
+      </svg>
+    </div>
+    <figcaption>رسم مبسّط لشكل النتايج، مش الأرقام الفعلية. اللي اتأكد: الحساسية نزلت بحدة في آخر 5 سنين، وظيفة بيتا زادت (تعويض) بين 4 و3 سنين قبل التشخيص وبعدين نزلت، والسكر الصايم قفز في آخر 3 سنين (Tabák et al., Lancet 2009).</figcaption>
+  </figure>
+
+  <div class="col">
+    <p>اللي الرسمة دي بتقوله مهم جدًا عمليًا: <b>السكر الصايم جرس إنذار متأخر.</b> لما يبدأ يعلى، العملية بقالها سنين. التعويض بيخبّي المشكلة، والانهيار بيحصل بسرعة في الآخر. وده واحد من أسباب إن 62% من مرضى السكر في مصر مش عارفين.</p>
+
+    <h3>الدورة المزدوجة: إزاي الكبد والبنكرياس بيوقّعوا بعض</h3>
+    <p>روي تايلور من جامعة نيوكاسل اقترح نموذج بيربط كل اللي فات <span class="mem">من الذاكرة: Taylor 2008</span>:</p>
+    <ul class="plain">
+      <li><b>دورة الكبد:</b> فائض طاقة ← دهون في الكبد ← الكبد يقاوم الإنسولين ويطلّع جلوكوز زيادة ← البنكرياس يطلّع إنسولين أكتر ← الإنسولين العالي يشغّل تصنيع دهون في الكبد ← دهون أكتر في الكبد.</li>
+      <li><b>دورة البنكرياس:</b> الكبد المليان بيصدّر دهون في الدم ← جزء منها يتراكم في البنكرياس ← خلايا بيتا تتعب وتفرز أقل.</li>
+    </ul>
+    <p>الاختبار الأول للنموذج كان تجربة صغيرة سنة 2011: 11 مريض على 600 سعر في اليوم (مشروبات ومعاها خضار) لمدة 8 أسابيع. السكر الصايم رجع طبيعي <b>خلال أسبوع</b> (مع نزول دهون الكبد)، ودهون البنكرياس نزلت من حوالي 8% لحوالي 6%، ووظيفة خلايا بيتا رجعت طبيعية تقريبًا مع آخر التجربة (Lim et al., Diabetologia 2011). تجربة صغيرة ومن غير مجموعة مقارنة، وقياس دهون البنكرياس نفسه عليه جدل علمي. بس هي اللي فتحت الباب لتجربة DiRECT الكبيرة (<a href="#m6">الوحدة 6</a>).</p>
+
+    <h3>خلايا بيتا: ماتت ولا نايمة؟</h3>
+    <p>فيه أدلة، أغلبها في الفئران، إن خلايا بيتا تحت الضغط ممكن "تنسى هويتها" بدل ما تموت <span class="mem">من الذاكرة: Talchai 2012</span>. لو ده صح في الإنسان، يبقى فيه جزء من الخلايا ممكن يرجع لو الضغط اتشال، وده بيفسّر ليه الرجوع أسهل بكتير في أول سنين المرض، وأصعب بعد سنين طويلة لما الخلايا تكون فعلًا ماتت.</p>
+
+    <h3>السكر النوع التاني مش مرض واحد</h3>
+    <p>دراسة سويدية على حوالي 9 آلاف مريض جديد قسّمت السكر عند الكبار لخمس مجموعات حسب السن والوزن والمقاومة ووظيفة بيتا (Ahlqvist et al., Lancet Diabetes Endocrinol 2018):</p>
+  </div>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>المجموعة</th><th>النسبة التقريبية <span class="mem">من الذاكرة</span></th><th>الملامح</th><th>ليه تفرق</th></tr></thead>
+      <tbody>
+        <tr><td>مناعي شديد (SAID)</td><td class="num">~6%</td><td>أجسام مضادة، قريب من النوع الأول</td><td>محتاج إنسولين بدري</td></tr>
+        <tr><td>نقص إنسولين شديد (SIDD)</td><td class="num">~18%</td><td>وزن مش عالي، بيتا ضعيفة جدًا، سكر عالي</td><td>أعلى خطر على العين. "المقاومة هي أصل كل حاجة" مابتنطبقش عليهم</td></tr>
+        <tr><td>مقاومة شديدة (SIRD)</td><td class="num">~15%</td><td>وزن عالي ومقاومة شديدة</td><td>أعلى خطر على الكلى والكبد الدهني</td></tr>
+        <tr><td>مرتبط بالسمنة، خفيف (MOD)</td><td class="num">~22%</td><td>سمنة من غير مقاومة شديدة</td><td>خسارة الوزن ليها أثر كبير</td></tr>
+        <tr><td>مرتبط بالسن، خفيف (MARD)</td><td class="num">~39%</td><td>كبار في السن، اضطراب بسيط</td><td>أبسط مسار</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col">
+    <p>التقسيم ده لسه مش مستخدم في العلاج الروتيني، والمجموعات مش حدود ثابتة. بس فايدته إنه بيكسر أي ادعاء بيقول "السكر كله سببه حاجة واحدة وعلاجه حاجة واحدة".</p>
+  </div>
+
+  <div class="key">
+    <div class="k">الفكرة اللي هنبني عليها</div>
+    <p>السكر النوع التاني = ضغط (مقاومة جاية غالبًا من فيضان الدهون) فوق مصنع محدود القدرة (خلايا بيتا، اللي قدرتها متحددة جزئيًا بالوراثة). الضغط بيتراكم سنين في صمت، والانهيار بيبان في الآخر بسرعة.</p>
+  </div>
+
+  <div class="quiz">
+    <div class="k">اختبر نفسك</div>
+    <details><summary>اتنين وزنهم 120 كيلو، واحد جاله سكر والتاني لأ. إيه أقرب تفسير؟</summary><div class="ans">خلايا بيتا عند التاني قادرة تعوّض المقاومة، وعند الأول لأ. وممكن كمان الخزان الآمن عند التاني أكبر، فدهونه أقل في الكبد والبنكرياس.</div></details>
+    <details><summary>ليه تحليل السكر الصايم الطبيعي مايطمنّش لوحده؟</summary><div class="ans">لأنه بيعلى متأخر، في آخر 3 سنين تقريبًا قبل التشخيص، بعد سنين من المقاومة والتعويض. السكر التراكمي ومنحنى السكر بيكشفوا بدري أكتر.</div></details>
+    <details><summary>لو أغلب جينات السكر بتأثر على بيتا، ده معناه إن الوزن مالوش دعوة؟</summary><div class="ans">لأ. الوراثة بتحدد قدرة المصنع، والوزن ودهون الكبد بيحددوا الضغط عليه. السكر بيظهر لما الضغط يعدّي القدرة. تقليل الضغط بيفيد حتى لو المصنع ضعيف.</div></details>
+  </div>
+</section>
+
+<!-- ============ MODULE 5 ============ -->
+<section class="module" id="m5">
+  <div class="mod-head">
+    <div class="eyebrow">الوحدة 5</div>
+    <h2>الأسباب: إيه اللي بيملي الخزان ويضغط على المصنع؟</h2>
+    <p class="goal">الهدف: ترتّب الأسباب حسب قوة الدليل مش حسب شهرتها، وتشوف إن مفيش "مكوّن شرير واحد".</p>
+  </div>
+
+  <div class="col">
+    <h3>سؤال بيحسم نص الجدل</h3>
+    <p>جينات المصريين ماتغيرتش في 30 سنة. نسبة السكر عند الكبار كانت حوالي 9% في مسح منتصف التسعينات <span class="mem">من الذاكرة: Herman 1995</span>، ودلوقتي 22%. يبقى اللي اتغير هو البيئة: الأكل المتاح، الحركة، النوم، شكل الشغل والمدينة. الوراثة بتحدد مين أكتر عرضة، والبيئة بتحدد كام واحد من المعرضين هيوصل.</p>
+    <p>القاسم المشترك تقريبًا في كل الأسباب البيئية: <b>فائض طاقة مزمن</b> بيملي الخزان الآمن، ومعاه <b>قلة حركة</b> بتقلل سحب العضلات للجلوكوز.</p>
+  </div>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>العامل</th><th>بيعمل إيه</th><th>قوة الدليل</th><th>أبرز دليل</th></tr></thead>
+      <tbody>
+        <tr><td>زيادة الوزن والدهون الحشوية</td><td>فيضان الخزان، دهون في الكبد والبنكرياس</td><td><span class="ev s">قوي</span></td><td>تجارب منع السكر وتجارب الهدوء (DPP، DiRECT): خسارة الوزن بتقلل الخطر وبتعكس المرض</td></tr>
+        <tr><td>قلة الحركة</td><td>العضلات تسحب جلوكوز أقل، ومقاومة عضلات</td><td><span class="ev s">قوي</span></td><td>DPP: الهدف كان 150 دقيقة حركة في الأسبوع مع 7% خسارة وزن</td></tr>
+        <tr><td>المشروبات المحلاة بالسكر</td><td>سعرات سايلة مابتشبّعش، وفركتوز بيروح للكبد</td><td><span class="ev m">متوسط</span></td><td>كل حصة يوميًا: +18% خطر، و+13% بعد تعديل الوزن (Imamura, BMJ 2015)</td></tr>
+        <tr><td>الأكل فائق التصنيع</td><td>بيخلي الناس تاكل أكتر من غير ما تحس</td><td><span class="ev m">متوسط</span></td><td>تجربة عنبر: الناس أكلت حوالي 500 سعر زيادة في اليوم على الأكل فائق التصنيع وزادت وزن في أسبوعين <span class="mem">من الذاكرة: Hall 2019</span></td></tr>
+        <tr><td>التدخين</td><td>بيزود المقاومة والدهون الحشوية</td><td><span class="ev m">متوسط</span></td><td>المدخنين عندهم خطر أعلى بحوالي الثلث <span class="mem">من الذاكرة</span></td></tr>
+        <tr><td>قلة النوم</td><td>بيقلل حساسية الإنسولين وبيزود الجوع</td><td><span class="ev m">متوسط</span></td><td>تجارب حرمان نوم قصيرة + دراسات متابعة</td></tr>
+        <tr><td>الضغط النفسي المزمن</td><td>كورتيزول، نوم أسوأ، أكل أكتر</td><td><span class="ev w">ضعيف لمتوسط</span></td><td>ضغط الشغل: خطر أعلى 15%، بينزل لـ 11% بعد تعديل نمط الحياة (Nyberg, Diabetes Care 2014، 124 ألف شخص)</td></tr>
+        <tr><td>الأصل العرقي</td><td>خزان آمن أصغر، دهون حشوية أكتر عند نفس الوزن</td><td><span class="ev m">متوسط</span></td><td>منظمة الصحة العالمية خفّضت حدود مؤشر الكتلة للآسيويين (Lancet 2004)</td></tr>
+        <tr><td>أدوية</td><td>الكورتيزون، بعض أدوية الأمراض النفسية، والستاتين بزيادة صغيرة</td><td><span class="ev s">قوي للكورتيزون</span></td><td>الستاتين: زيادة خطر حوالي 9% <span class="mem">من الذاكرة: Sattar 2010</span>، وفايدته للقلب أكبر بكتير</td></tr>
+        <tr><td>الوراثة</td><td>بتحدد قدرة خلايا بيتا وشكل التخزين</td><td><span class="ev s">قوي</span></td><td>توارث حوالي 72% في التوائم، وأغلب الجينات بتأثر على بيتا</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col">
+    <h3>ليه "المكوّن الشرير" فكرة جذابة وغلط؟</h3>
+    <p>عقلنا بيحب سبب واحد: السكر، أو الكربوهيدرات، أو الدهون، أو الإنسولين. سبب واحد معناه حل واحد، ومعناه منتج واحد يتباع. بس الأدلة بتقول إن الجسم مش فارق معاه أوي الطاقة جات منين، فارق معاه <b>قد إيه زيادة</b>، و<b>اتخزنت فين</b>، و<b>المصنع يستحمل قد إيه</b>. نوع الأكل مهم، بس أهميته غالبًا بتعدّي من خلال: قد إيه بيشبّع، وقد إيه بيخليك تاكل زيادة، وبيروح فين في الجسم.</p>
+  </div>
+
+  <div class="key">
+    <div class="k">الفكرة اللي هنبني عليها</div>
+    <p>الأسباب القوية دليلًا قليلة ومملة: وزن زيادة ودهون حشوية، قلة حركة، ووراثة. الباقي عوامل مساعدة حقيقية بس أصغر. أي حد بيبيعلك سبب واحد مثير، غالبًا بيبيعلك حاجة.</p>
+  </div>
+
+  <div class="quiz">
+    <div class="k">اختبر نفسك</div>
+    <details><summary>ليه أثر المشروبات المحلاة بيقل من 18% لـ 13% لما نعدّل للوزن؟</summary><div class="ans">لأن جزء من أثرها بيعدّي من خلال زيادة الوزن. الجزء الباقي (13%) ممكن يكون أثر مباشر زي الفركتوز في الكبد، أو عوامل مُربكة ماتعدّلتش.</div></details>
+    <details><summary>لو الوراثة 72%، ليه السكر في مصر زاد بالشكل ده في عقود قليلة؟</summary><div class="ans">لأن نسبة التوارث بتوصف الاختلاف بين الناس في بيئة معينة. لما البيئة كلها تتغير، الكل بيتحرك. الجينات بتحدد مين هيقع الأول، والبيئة بتحدد كام واحد هيقع.</div></details>
+  </div>
+</section>
+
+<!-- ============ MODULE 6 ============ -->
+<section class="module" id="m6">
+  <div class="mod-head">
+    <div class="eyebrow">الوحدة 6</div>
+    <h2>الرجوع: إيه اللي بيتعكس، وإيه اللي لأ، ولحد إمتى؟</h2>
+    <p class="goal">الهدف: تفرّق بين "هدوء" و"شفاء"، وتعرف الأدلة على الرجوع بأرقامها الحقيقية، بما فيها الأرقام اللي مش بتتقال في الإعلانات.</p>
+  </div>
+
+  <div class="col">
+    <h3>بالترتيب: إيه اللي بيرجع وبأي سرعة</h3>
+    <ul class="plain">
+      <li><b>دهون الكبد ومقاومة الكبد:</b> أسرع حاجة. أيام لأسابيع مع تقليل السعرات (السكر الصايم في تجربة 2011 رجع طبيعي في أسبوع).</li>
+      <li><b>وظيفة خلايا بيتا:</b> أبطأ، وبترجع <b>جزئيًا</b>، وفرصتها أحسن بكتير في أول سنين المرض.</li>
+      <li><b>مقاومة العضلات:</b> بتتحسن أكتر بالحركة.</li>
+      <li><b>القابلية نفسها:</b> مابتختفيش. الجينات والخزان الآمن الصغير موجودين.</li>
+    </ul>
+
+    <h3>تعريف "الهدوء" (Remission)</h3>
+    <p>التعريف المتفق عليه دوليًا: السكر التراكمي أقل من 6.5% لمدة 3 شهور على الأقل <b>من غير أدوية سكر</b> <span class="mem">من الذاكرة: إجماع ADA 2021</span>. لاحظ الشرط الأخير، لأن دراسات كتير بتسمّي "هدوء" وهي لسه الناس على أدوية.</p>
+
+    <h3>الأدلة بأرقامها</h3>
+  </div>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>الدراسة</th><th>نوعها</th><th>اللي حصل</th><th>الحتة اللي مش بتتقال</th></tr></thead>
+      <tbody>
+        <tr><td>DiRECT، سنة واحدة (Lancet 2018)</td><td><span class="ev s">RCT</span>، 306 مريض في عيادات رعاية أولية في بريطانيا</td><td>46% في هدوء مقابل 4% في المجموعة العادية <span class="mem">رقم المقارنة من الذاكرة</span>. اللي خسروا 15 كيلو أو أكتر: حوالي 86% منهم في هدوء</td><td>الناس كانوا مشخّصين من أقل من 6 سنين ومش على إنسولين</td></tr>
+        <tr><td>DiRECT، سنتين</td><td>نفس التجربة</td><td>36% في هدوء</td><td>ثلث اللي كانوا في هدوء رجعلهم السكر في سنة</td></tr>
+        <tr><td>DiRECT، 5 سنين (2024)</td><td>متابعة ممتدة على 95 من المشاركين</td><td>13% بس في هدوء. 26% من اللي كانوا في هدوء في السنة التانية فضلوا لحد الخامسة. دخول المستشفى لأمراض خطيرة: 4.8 مقابل 10.2 لكل 100 سنة-مريض</td><td>الحفاظ هو الصعب الحقيقي. بس حتى اللي رجعلهم السكر استفادوا من سنين أقل في سكر عالي</td></tr>
+        <tr><td>ReTUNE (2022)</td><td><span class="ev w">تجربة صغيرة</span>، 20 شخص وزنهم طبيعي</td><td>14 من 20 (70%) دخلوا في هدوء بخسارة 10 لـ 15% من وزنهم</td><td>عدد صغير ومن غير مجموعة مقارنة. بس بيأكد فكرة "الحد الشخصي للدهون"</td></tr>
+        <tr><td>جراحات السمنة</td><td><span class="ev s">RCT</span> لحد 10 سنين</td><td>هدوء طويل لنسبة معتبرة، مقابل شبه صفر بالأدوية <span class="mem">من الذاكرة: Mingrone 2021</span></td><td>جراحة كبيرة ليها مضاعفات، ومش لكل الناس</td></tr>
+        <tr><td>DPP، منع السكر (NEJM 2002)</td><td><span class="ev s">RCT</span>، 3,234 شخص عندهم مرحلة ما قبل السكر</td><td>نمط الحياة (7% خسارة وزن + 150 دقيقة حركة أسبوعيًا) قلّل السكر 58%، والميتفورمين 31%</td><td>كل 7 أشخاص في برنامج نمط الحياة، واحد اتمنع عنه السكر في 3 سنين</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col">
+    <h3>مين فرصته أقل؟</h3>
+    <ul class="plain">
+      <li>اللي بقاله سنين طويلة بالسكر، أو على إنسولين.</li>
+      <li>اللي خلايا بيتا عنده ضعيفة جدًا (مجموعة SIDD في <a href="#m4">الوحدة 4</a>).</li>
+      <li>اللي مقدرش يخسر وزن كفاية أو يحافظ عليه.</li>
+    </ul>
+
+    <h3>ليه الحفاظ صعب كده؟</h3>
+    <p>مش كسل ولا قلة إرادة بس. لما الوزن ينزل، الجسم بيقاوم: الجوع بيزيد، والصرف بيقل شوية. فيه تقديرات إن الشهية بتزيد بحوالي 100 سعر في اليوم لكل كيلو اتخسر <span class="mem">من الذاكرة: Polidori 2016</span>. ده بيفسّر نتايج الخمس سنين، وبيفسّر ليه الأدوية زي أوزمبيك بتشتغل طول ما إنت عليها (<a href="#myth14">الخرافة 14</a>).</p>
+
+    <h3>عن التحيّز في أدلة الرجوع</h3>
+    <p>DiRECT استخدم وجبات بديلة من شركة تجارية، وبعض الباحثين ليهم علاقة بالبرنامج. ده مايلغيش النتيجة لأنها تجربة عشوائية، والتمويل الأساسي كان من جمعية خيرية (Diabetes UK). بس خليه في دماغك وإنت بتقرا "قصص النجاح".</p>
+  </div>
+
+  <div class="key">
+    <div class="k">الفكرة اللي هنبني عليها</div>
+    <p>الرجوع ممكن ومثبت، بس اسمه هدوء مش شفاء: نفس الآلية اللي عملت المرض (دهون في الكبد والبنكرياس) لو رجعت، المرض بيرجع. الفرصة أكبر في الأول، والمعركة الحقيقية هي الحفاظ.</p>
+  </div>
+
+  <div class="quiz">
+    <div class="k">اختبر نفسك</div>
+    <details><summary>إعلان بيقول "برنامجنا عمل هدوء لـ 60% من المرضى". تسأل إيه؟</summary><div class="ans">هدوء بتعريف إيه (من غير أدوية؟)، بعد قد إيه (6 شهور ولا 5 سنين؟)، مقارنة بإيه، مين المرضى (جداد ولا قدام؟)، وكام واحد ساب البرنامج ومااتحسبش.</div></details>
+    <details><summary>واحد دخل في هدوء ورجعله السكر بعد 3 سنين. يبقى ماكانش فيه فايدة؟</summary><div class="ans">لأ. سنين بسكر طبيعي يعني ضرر أقل على الأوعية. ونتايج DiRECT في 5 سنين بتقول إن دخول المستشفى قل للنص في مجموعة التدخل.</div></details>
+  </div>
+</section>
+
+<!-- ============ MODULE 7 ============ -->
+<section class="module" id="m7">
+  <div class="mod-head">
+    <div class="eyebrow">الوحدة 7</div>
+    <h2>تفكيك 16 خرافة بالأساس اللي بنيناه</h2>
+    <p class="goal">كل خرافة هنا فيها لينك للوحدة اللي بتفككها. لو فهمت الوحدة، هتلاقي إنك كنت تقدر تفكك الخرافة لوحدك. وكل خرافة تقريبًا فيها حتة صح، وده سر انتشارها.</p>
+  </div>
+
+  <div class="scroll">
+    <table class="summary-table">
+      <thead><tr><th>#</th><th>الادعاء</th><th>الحكم</th><th>أقوى دليل</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><a href="#myth1">السكر بيعمل السكر</a></td><td><span class="pill v-partly">نص صح</span></td><td><span class="ev m">متوسط</span></td></tr>
+        <tr><td>2</td><td><a href="#myth2">الكربوهيدرات هي السبب والدهون بريئة</a></td><td><span class="pill v-myth">خرافة</span></td><td><span class="ev s">قوي</span></td></tr>
+        <tr><td>3</td><td><a href="#myth3">الإنسولين العالي هو أصل المرض</a></td><td><span class="pill v-myth">خرافة في الغالب</span></td><td><span class="ev s">قوي</span></td></tr>
+        <tr><td>4</td><td><a href="#myth4">الكيتو بيعالج السكر</a></td><td><span class="pill v-partly">نص صح</span></td><td><span class="ev s">قوي، قصير المدى</span></td></tr>
+        <tr><td>5</td><td><a href="#myth5">الصيام المتقطع بيعكس السكر</a></td><td><span class="pill v-partly">نص صح</span></td><td><span class="ev s">قوي</span></td></tr>
+        <tr><td>6</td><td><a href="#myth6">السكر مالوش رجوع</a></td><td><span class="pill v-myth">خرافة</span></td><td><span class="ev s">قوي</span></td></tr>
+        <tr><td>7</td><td><a href="#myth7">الرفيع مش هيجيله سكر</a></td><td><span class="pill v-myth">خرافة</span></td><td><span class="ev m">متوسط</span></td></tr>
+        <tr><td>8</td><td><a href="#myth8">مريض السكر ممنوع من الفاكهة</a></td><td><span class="pill v-myth">خرافة</span></td><td><span class="ev m">متوسط</span></td></tr>
+        <tr><td>9</td><td><a href="#myth9">القرفة والبربرين وخل التفاح بيعالجوا</a></td><td><span class="pill v-myth">خرافة</span></td><td><span class="ev w">ضعيف</span></td></tr>
+        <tr><td>10</td><td><a href="#myth10">الإنسولين بيعمي والميتفورمين بيبوّظ الكلى</a></td><td><span class="pill v-myth">خرافة</span></td><td><span class="ev s">قوي</span></td></tr>
+        <tr><td>11</td><td><a href="#myth11">السكر جالي من الخضّة</a></td><td><span class="pill v-partly">نص صح</span></td><td><span class="ev m">متوسط</span></td></tr>
+        <tr><td>12</td><td><a href="#myth12">العسل والسكر البني مسموحين</a></td><td><span class="pill v-myth">خرافة</span></td><td><span class="ev w">ضعيف</span></td></tr>
+        <tr><td>13</td><td><a href="#myth13">السكر وراثة ومفيش فايدة</a></td><td><span class="pill v-myth">خرافة</span></td><td><span class="ev s">قوي</span></td></tr>
+        <tr><td>14</td><td><a href="#myth14">أوزمبيك هو الحل النهائي</a></td><td><span class="pill v-partly">نص صح</span></td><td><span class="ev s">قوي</span></td></tr>
+        <tr><td>15</td><td><a href="#myth15">السكر الصايم طبيعي يبقى أنا سليم</a></td><td><span class="pill v-myth">خرافة</span></td><td><span class="ev m">متوسط</span></td></tr>
+        <tr><td>16</td><td><a href="#myth16">الدايت كولا بتعمل سكر زي العادية</a></td><td><span class="pill v-partly">غير مثبت</span></td><td><span class="ev w">ضعيف</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="myths">
+
+  <article class="myth" id="myth1">
+    <div class="myth-top"><span class="n">1</span><span class="pill v-partly">نص صح</span><span class="ev m">دليل متوسط</span><h3>"السكر بيعمل السكر"</h3></div>
+    <div class="lens">الأساس اللي بيفكّها: <a href="#m3">الوحدة 3 (فيضان الخزان)</a> و<a href="#m5">الوحدة 5 (الأسباب)</a></div>
+    <div class="row"><b>الحتة الصح</b><p>المشروبات المحلاة بالسكر مرتبطة بخطر أعلى حتى بعد تعديل الوزن. والفركتوز بيتعالج أساسًا في الكبد، وتجارب التغذية الزيادة بيه بتزوّد دهون الكبد وتقلل حساسية الإنسولين.</p></div>
+    <div class="row"><b>الحتة الغلط</b><p>السكر مش "سم" بيعمل السكر في حد ذاته. أثره بيظهر أساسًا لما بيضيف سعرات زيادة. لما الفركتوز بيتبدل بسعرات تانية بنفس الكمية في التجارب، الأثر على السكر في الدم بيختفي تقريبًا. واللي بيقطع السكر وياكل سعرات زيادة من حاجة تانية مش هيتحمى.</p></div>
+    <div class="row"><b>الأدلة</b><ul>
+      <li>Imamura, BMJ 2015: كل حصة يومية +18% خطر، و+13% بعد تعديل الوزن.</li>
+      <li>Stanhope, JCI 2009 <span class="mem">من الذاكرة</span>: 25% من السعرات فركتوز لمدة 10 أسابيع زوّدت دهون البطن وقللت الحساسية مقارنة بالجلوكوز. بس المجموعتين زادوا وزن، يعني كان فيه سعرات زيادة.</li>
+      <li>Choo, BMJ 2018 <span class="mem">من الذاكرة</span>: تجميع تجارب لقى الضرر في تجارب السعرات الزيادة، مش في الاستبدال بنفس السعرات.</li>
+    </ul></div>
+    <div class="row"><b>مين المستفيد</b><p>صناعة السكر ليها تاريخ موثّق في توجيه البحث: مؤسسة أبحاث السكر مولت سنة 1967 مراجعة في هارفارد شالت اللوم عن السكر في أمراض القلب <span class="mem">من الذاكرة: Kearns, JAMA Intern Med 2016</span>. وفي الاتجاه التاني، كتّاب "السكر سم" بيبيعوا كتب وبرامج بتبسّط زيادة.</p></div>
+  </article>
+
+  <article class="myth" id="myth2">
+    <div class="myth-top"><span class="n">2</span><span class="pill v-myth">خرافة</span><span class="ev s">دليل قوي</span><h3>"الكربوهيدرات هي السبب، والدهون بريئة"</h3></div>
+    <div class="lens">الأساس اللي بيفكّها: <a href="#m3">الوحدة 3 (الدهون في المكان الغلط)</a></div>
+    <div class="row"><b>الحتة الصح</b><p>نوع الكربوهيدرات بيفرق: المكرر والمشروبات وحشين، والحبوب الكاملة مرتبطة بخطر أقل.</p></div>
+    <div class="row"><b>الحتة الغلط</b><p>اللي بيعمل المقاومة هو الدهون اللي اتخزنت في الكبد والعضلات، والدهون دي ممكن تيجي من أي مصدر طاقة زيادة. والمفاجأة إن الدهون المشبعة في التغذية الزيادة زوّدت دهون الكبد <b>أكتر</b> من السكر. وشعوب كتير عاشت على نشويات (الرز في اليابان، العيش والفول في الريف المصري زمان) من غير معدلات السكر بتاعة النهارده.</p></div>
+    <div class="row"><b>الأدلة</b><ul>
+      <li>Luukkonen, Diabetes Care 2018: 1000 سعر زيادة يوميًا لمدة 3 أسابيع على 30 شخص. دهون الكبد زادت 55% مع الدهون المشبعة، 33% مع السكر، 15% مع الدهون غير المشبعة.</li>
+      <li>Tinker, Arch Intern Med 2008 (WHI) <span class="mem">من الذاكرة</span>: نظام قليل الدهون ماقللش السكر بشكل واضح. يعني ولا الدهون لوحدها هي الشرير.</li>
+    </ul></div>
+    <div class="row"><b>مين المستفيد</b><p>صناعة منتجات الكيتو واللو-كارب، ومنتجي اللحوم والزبدة اللي استفادوا من موجة "الدهون اتظلمت". "كُل دهون براحتك" بتبيع أكتر من "كُل أقل واتحرك".</p></div>
+  </article>
+
+  <article class="myth" id="myth3">
+    <div class="myth-top"><span class="n">3</span><span class="pill v-myth">خرافة في الغالب</span><span class="ev s">دليل قوي</span><h3>"الإنسولين العالي هو أصل المرض، والكربوهيدرات بتتخّن عشان بترفع الإنسولين"</h3></div>
+    <div class="lens">الأساس اللي بيفكّها: <a href="#m2">الوحدة 2 (الإنسولين تعويض)</a> و<a href="#m0">الوحدة 0 (الآلية المنطقية مش دليل)</a></div>
+    <div class="row"><b>الحتة الصح</b><p>فيه أدلة إن الإنسولين العالي جدًا لفترات طويلة ممكن يزوّد المقاومة في بعض الظروف. والسؤال العلمي ده لسه مفتوح جزئيًا.</p></div>
+    <div class="row"><b>الحتة الغلط</b><p>لو الفكرة صح، تقليل الكربوهيدرات بنفس السعرات كان المفروض يحرق دهون أكتر. اتختبرت في عنابر أيض محكومة، والنتيجة كانت العكس أو مفيش فرق. وفي تجربة كبيرة، مستوى إفراز الإنسولين في البداية ماتنبأش مين هيستفيد من أنهي نظام. وده النموذج اللي خد 33 من 100 في مقارنة النماذج اللي عملناها قبل كده في المشروع.</p></div>
+    <div class="row"><b>الأدلة</b><ul>
+      <li>Hall, Cell Metab 2015 <span class="mem">من الذاكرة</span>: بنفس تقليل السعرات، تقليل الدهون خسّر دهون جسم أكتر من تقليل الكربوهيدرات، مع إن الإنسولين نزل أكتر في تقليل الكربوهيدرات.</li>
+      <li>Hall, AJCN 2016 <span class="mem">من الذاكرة</span>: 17 راجل نقلوا لكيتو بنفس السعرات. الصرف زاد حوالي 57 سعر بس في اليوم، وفقدان الدهون بطّأ.</li>
+      <li>Gardner, JAMA 2018 (DIETFITS) <span class="mem">من الذاكرة</span>: 609 شخص، سنة. لو-فات ولو-كارب نفس فقدان الوزن تقريبًا (5.3 مقابل 6 كيلو).</li>
+      <li>للإنصاف: تجربة Ebbeling في BMJ 2018 لقت صرف طاقة أعلى مع اللو-كارب في مرحلة الحفاظ، والنتيجة دي عليها جدل في التحليل لحد النهارده.</li>
+    </ul></div>
+    <div class="row"><b>مين المستفيد</b><p>كتّاب وبرامج "الإنسولين هو العدو"، ومعامل بتبيع تحليل إنسولين صايم وHOMA-IR كفحص روتيني من غير حد متفق عليه.</p></div>
+  </article>
+
+  <article class="myth" id="myth4">
+    <div class="myth-top"><span class="n">4</span><span class="pill v-partly">نص صح</span><span class="ev s">دليل قوي، قصير المدى</span><h3>"الكيتو بيعالج السكر"</h3></div>
+    <div class="lens">الأساس اللي بيفكّها: <a href="#m3">الوحدة 3 (المقاومة الفسيولوجية)</a> و<a href="#m0">الوحدة 0 (المؤشر البديل، لحد إمتى؟)</a></div>
+    <div class="row"><b>الحتة الصح</b><p>نظام قليل الكربوهيدرات بينزّل السكر التراكمي بسرعة وبيقلل الأدوية، وده مفيد فعلًا. في أول 6 شهور، نسبة الوصول لسكر تراكمي أقل من 6.5% أعلى من الأنظمة التانية.</p></div>
+    <div class="row"><b>الحتة الغلط</b><p>لما تشيل الكربوهيدرات، أكيد السكر في الدم هينزل. ده تجنّب للمشكلة مش إصلاح ليها. الإصلاح الحقيقي (دهون أقل في الكبد والبنكرياس) بييجي من خسارة الوزن، وده ممكن بأي نظام. والأهم: لما الباحثين استخدموا التعريف الصارم للهدوء (من غير أدوية)، الفرق ماكانش له دلالة. والفرق كله قل جدًا بعد سنة. والكيتو نفسه بيعمل مقاومة عضلات فسيولوجية، فلو رجعت للكربوهيدرات فجأة ممكن تتفاجئ.</p></div>
+    <div class="row"><b>الأدلة</b><ul>
+      <li>Goldenberg, BMJ 2021 (تجميع 23 تجربة عشوائية، 1,357 مريض): بعد 6 شهور 57% مقابل 31% وصلوا لسكر تراكمي أقل من 6.5%. بالتعريف الصارم (من غير أدوية) الفرق ماكانش ذا دلالة. بعد 12 شهر البيانات قليلة والأثر بين صغير ومهمل.</li>
+      <li>Virta (Hallberg 2018) <span class="mem">من الذاكرة</span>: نتايج قوية بس <b>مش عشوائية</b>، وأغلب الباحثين موظفين في الشركة اللي بتبيع البرنامج.</li>
+    </ul></div>
+    <div class="row"><b>مين المستفيد</b><p>شركات منتجات الكيتو والمكملات، برامج الاشتراك المدفوعة، ومؤثرين عايشين على "قصص الشفاء". أكتر دراسة بيستشهدوا بيها مش عشوائية ومموّلة من الشركة نفسها.</p></div>
+  </article>
+
+  <article class="myth" id="myth5">
+    <div class="myth-top"><span class="n">5</span><span class="pill v-partly">نص صح</span><span class="ev s">دليل قوي</span><h3>"الصيام المتقطع بيعكس السكر"</h3></div>
+    <div class="lens">الأساس اللي بيفكّها: <a href="#m0">الوحدة 0 (مقارنة بإيه؟)</a> و<a href="#m6">الوحدة 6 (الرجوع)</a></div>
+    <div class="row"><b>الحتة الصح</b><p>الصيام المتقطع بيشتغل، وناس كتير بتلاقيه أسهل من حساب السعرات.</p></div>
+    <div class="row"><b>الحتة الغلط</b><p>لما بيتقارن بتقليل السعرات العادي بنفس الكمية، النتيجة تقريبًا واحدة. الفايدة جاية من إنك أكلت أقل وخسيت، مش من سحر في التوقيت أو "الالتهام الذاتي". <b>تحذير مهم:</b> مريض على إنسولين أو أدوية زي الجليميبرايد لو صام من غير تعديل الجرعة ممكن يجيله هبوط خطير. وده بيتطبق على رمضان كمان.</p></div>
+    <div class="row"><b>الأدلة</b><ul>
+      <li>Carter, JAMA Netw Open 2018 <span class="mem">من الذاكرة</span>: تجربة عشوائية سنة على مرضى سكر، نظام 5:2 مش أقل من تقليل السعرات المستمر في السكر التراكمي.</li>
+      <li>Liu, NEJM 2022 <span class="mem">من الذاكرة</span>: الأكل في وقت محدد مع تقليل سعرات = نفس نتيجة تقليل السعرات لوحده (على ناس عندها سمنة).</li>
+      <li>Furmli, BMJ Case Rep 2018: 3 حالات بس، وده أوطى درجة على السلم.</li>
+    </ul></div>
+    <div class="row"><b>مين المستفيد</b><p>برامج الصيام المدفوعة وكتبها وأبلكيشناتها. الصيام مجاني، "البرنامج" مش مجاني.</p></div>
+  </article>
+
+  <article class="myth" id="myth6">
+    <div class="myth-top"><span class="n">6</span><span class="pill v-myth">خرافة</span><span class="ev s">دليل قوي</span><h3>"السكر النوع التاني مالوش رجوع، والحل الوحيد الدوا"</h3></div>
+    <div class="lens">الأساس اللي بيفكّها: <a href="#m4">الوحدة 4 (الدورة المزدوجة)</a> و<a href="#m6">الوحدة 6 (الرجوع)</a></div>
+    <div class="row"><b>الحتة الصح</b><p>بعد سنين طويلة، ومع خلايا بيتا ضعيفة، الرجوع صعب جدًا. والحفاظ على الهدوء صعب حتى للي وصل.</p></div>
+    <div class="row"><b>الحتة الغلط</b><p>الهدوء مثبت بتجارب عشوائية، خصوصًا في أول سنين المرض ومع خسارة وزن كبيرة. بس اسمه هدوء مش شفاء.</p></div>
+    <div class="row"><b>الأدلة</b><ul>
+      <li>DiRECT: 46% بعد سنة، 36% بعد سنتين، 13% بعد 5 سنين، ودخول المستشفى قل للنص.</li>
+      <li>تجارب جراحة السمنة لحد 10 سنين.</li>
+    </ul></div>
+    <div class="row"><b>مين المستفيد</b><p>مش مؤامرة. بس نظام صحي مبني على "شخّص واكتب روشتة وتابع" بيستفيد من فكرة إن المرض ثابت، والعيادة مفيهاش وقت ولا تمويل لبرنامج خسارة وزن مكثف.</p></div>
+  </article>
+
+  <article class="myth" id="myth7">
+    <div class="myth-top"><span class="n">7</span><span class="pill v-myth">خرافة</span><span class="ev m">دليل متوسط</span><h3>"الرفيع مش هيجيله سكر، ده مرض التخان"</h3></div>
+    <div class="lens">الأساس اللي بيفكّها: <a href="#m3">الوحدة 3 (فيضان الخزان)</a> و<a href="#m4">الوحدة 4 (قدرة المصنع)</a></div>
+    <div class="row"><b>الحتة الصح</b><p>زيادة الوزن أكبر عامل خطر قابل للتغيير.</p></div>
+    <div class="row"><b>الحتة الغلط</b><p>المهم مش الوزن، المهم الدهون راحت فين وخزانك الآمن قد إيه، وخلايا بيتا عندك تستحمل قد إيه. فيه ناس رفيعة بدهون حشوية عالية، وناس عندهم مصنع ضعيف وراثيًا (مجموعة SIDD). والشرق أوسطيين والآسيويين بيجيلهم سكر عند وزن أقل.</p></div>
+    <div class="row"><b>الأدلة</b><ul>
+      <li>ReTUNE 2022: 20 شخص وزنهم طبيعي عندهم سكر، 70% دخلوا في هدوء بخسارة 10 لـ 15% من وزنهم. يعني حتى "الرفيع" كان عدّى حده الشخصي.</li>
+      <li>WHO Expert Consultation, Lancet 2004: حدود أقل لمؤشر الكتلة للآسيويين.</li>
+    </ul></div>
+    <div class="row"><b>مين المستفيد</b><p>محدش بفلوس. بس الخرافة بتخلي ناس رفيعة ماتعملش تحليل، وبتلزّق لوم أخلاقي على التخان ("ده كسل")، وبتبسّط مرض الوراثة فيه كبيرة.</p></div>
+  </article>
+
+  <article class="myth" id="myth8">
+    <div class="myth-top"><span class="n">8</span><span class="pill v-myth">خرافة</span><span class="ev m">دليل متوسط</span><h3>"مريض السكر ممنوع من الفاكهة"</h3></div>
+    <div class="lens">الأساس اللي بيفكّها: <a href="#m0">الوحدة 0 (العامل المُربك، والتجربة)</a></div>
+    <div class="row"><b>الحتة الصح</b><p>العصير حاجة تانية خالص: سكر سايل من غير ألياف، ومرتبط بخطر أعلى. والكمية مهمة.</p></div>
+    <div class="row"><b>الحتة الغلط</b><p>الفاكهة الكاملة مرتبطة بخطر أقل، والتجربة العشوائية اللي اتعملت على مرضى سكر مالقيتش ضرر من الفاكهة على السكر التراكمي.</p></div>
+    <div class="row"><b>الأدلة</b><ul>
+      <li>Christensen, Nutr J 2013 (تجربة عشوائية): 63 مريض جديد، 12 أسبوع. مجموعة "حبتين أو أكتر في اليوم" ضد "حبتين أو أقل". السكر التراكمي نزل في الاتنين ومفيش فرق بينهم، والوزن نزل في الاتنين.</li>
+      <li>Muraki, BMJ 2013 <span class="mem">من الذاكرة</span>: التوت والعنب والتفاح مرتبطين بخطر أقل، والعصير بخطر أعلى.</li>
+      <li>Du, PLoS Med 2017 <span class="mem">من الذاكرة</span>: نص مليون صيني. الفاكهة الطازة يوميًا مرتبطة بخطر سكر أقل، وعند مرضى السكر بمضاعفات ووفيات أقل.</li>
+      <li>تنبيه: دراسات المتابعة فيها عامل مُربك (آكل الفاكهة غالبًا عايش أصح)، والتجربة العشوائية قصيرة وصغيرة.</li>
+    </ul></div>
+    <div class="row"><b>مين المستفيد</b><p>صناعة اللو-كارب. وبالعكس، صناعة العصير بتستفيد من إن الناس تفتكر "عصير = فاكهة".</p></div>
+  </article>
+
+  <article class="myth" id="myth9">
+    <div class="myth-top"><span class="n">9</span><span class="pill v-myth">خرافة</span><span class="ev w">دليل ضعيف</span><h3>"القرفة والبربرين وخل التفاح بيعالجوا السكر"</h3></div>
+    <div class="lens">الأساس اللي بيفكّها: <a href="#m0">الوحدة 0 (المؤشر البديل، جودة الميتا-أناليسس)</a></div>
+    <div class="row"><b>الحتة الصح</b><p>بعضهم ليه أثر صغير قابل للقياس على السكر.</p></div>
+    <div class="row"><b>الحتة الغلط</b><p>مفيش واحد فيهم "علاج"، وجودة الأدلة ضعيفة، والأثر أصغر بكتير من أي تغيير في الوزن أو أي دوا معتمد.</p></div>
+    <div class="row"><b>الأدلة</b><ul>
+      <li><b>القرفة</b> (Allen, Ann Fam Med 2013): 10 تجارب، 543 مريض. السكر الصايم نزل حوالي 25 مجم/دل، بس السكر التراكمي نزل 0.16% بس ومن غير دلالة. والتجارب مختلفة جدًا عن بعض. ده درس "المؤشر البديل" بالظبط.</li>
+      <li><b>البربرين</b> (تجميع في Frontiers in Pharmacology 2024): ضد البلاسيبو، 4 تجارب بس، حوالي 370 مريض، 3 منهم في الصين وواحدة في إيران. السكر التراكمي نزل حوالي 0.7%. في كل التجارب اللي اتجمعت، أغلبها جودة العشوائية والتعمية فيها مش واضحة. لقب "أوزمبيك الطبيعي" تسويق مش علم.</li>
+      <li><b>خل التفاح:</b> تجارب صغيرة قصيرة بأثر بسيط على السكر بعد الأكل.</li>
+      <li>المكملات مش متنظمة زي الأدوية، والجرعة في الكبسولة مش مضمونة. وقرفة الكاسيا فيها كومارين ممكن يضر الكبد بجرعات عالية.</li>
+    </ul></div>
+    <div class="row"><b>مين المستفيد</b><p><b>ده أوضح بند في الكورس.</b> صناعة المكملات بمليارات، عطارين، ومؤثرين بيبيعوا بلينك عمولة.</p></div>
+  </article>
+
+  <article class="myth" id="myth10">
+    <div class="myth-top"><span class="n">10</span><span class="pill v-myth">خرافة</span><span class="ev s">دليل قوي</span><h3>"الإنسولين بيعمي ويفشّل الكلى، والميتفورمين بيبوّظ الكلى"</h3></div>
+    <div class="lens">الأساس اللي بيفكّها: <a href="#m0">الوحدة 0 (السببية العكسية)</a> و<a href="#m2">الوحدة 2 (الإنسولين إشارة ناقصة بنعوّضها)</a></div>
+    <div class="row"><b>الحتة الصح</b><p>الإنسولين ممكن يعمل هبوط وزيادة وزن لو الجرعة مش مظبوطة. والميتفورمين بيخرج عن طريق الكلى، فجرعته بتتعدل لو الكلى ضعيفة وبيتوقف لو ضعيفة جدًا.</p></div>
+    <div class="row"><b>الحتة الغلط</b><p>ده مثال كلاسيكي للسببية العكسية. الناس بتشوف إن اللي على إنسولين عنده مضاعفات، فبتفتكر الإنسولين السبب. الحقيقة إن الإنسولين بييجي متأخر بعد سنين من السكر العالي، والسكر العالي هو اللي عمل المضاعفات. والتأخير خوفًا من الإنسولين بيزوّد المضاعفات.</p></div>
+    <div class="row"><b>الأدلة</b><ul>
+      <li>UKPDS 33, Lancet 1998: 3,867 مريض جديد، أكتر من 10 سنين. التحكم المكثف (بما فيه الإنسولين) قلل مضاعفات الأوعية الدقيقة (عين وكلى وأعصاب) 25%. الهبوط الشديد كان 1.8% في السنة مع الإنسولين، والوزن زاد حوالي 4 كيلو.</li>
+      <li>Holman, NEJM 2008 <span class="mem">من الذاكرة</span>: الفايدة استمرت بعد 10 سنين من انتهاء التجربة.</li>
+      <li>Salpeter, Cochrane 2010: 347 دراسة، أكتر من 70 ألف سنة-مريض على ميتفورمين. صفر حالات حماض لبني.</li>
+    </ul></div>
+    <div class="row"><b>مين المستفيد</b><p>محدش بشكل مباشر. بس الخوف بيأخر العلاج سنين، وبيدفع ناس لـ"علاجات طبيعية" بفلوس (<a href="#myth9">الخرافة 9</a>).</p></div>
+  </article>
+
+  <article class="myth" id="myth11">
+    <div class="myth-top"><span class="n">11</span><span class="pill v-partly">نص صح</span><span class="ev m">دليل متوسط</span><h3>"السكر جالي من الخضّة"</h3></div>
+    <div class="lens">الأساس اللي بيفكّها: <a href="#m4">الوحدة 4 (الفيلم البطيء)</a></div>
+    <div class="row"><b>الحتة الصح</b><p>الضغط الحاد (خضّة، مرض، عملية) بيطلّع كورتيزول وأدرينالين بيرفعوا السكر. والضغط المزمن مرتبط بخطر أعلى شوية.</p></div>
+    <div class="row"><b>الحتة الغلط</b><p>الخضّة غالبًا <b>كشفت</b> السكر مش عملته. السكر بيتبني في صمت سنين (المقاومة والتعويض)، والخضّة بتبقى القشة اللي بتوقّع بنكرياس كان على الحافة أصلًا، أو بتخلّي الشخص يعمل تحليل لأول مرة. والخرافة دي بتشيل المسؤولية عن الأسباب الحقيقية اللي ممكن نغيرها.</p></div>
+    <div class="row"><b>الأدلة</b><ul>
+      <li>Nyberg, Diabetes Care 2014: 124,808 شخص في 13 دراسة أوروبية. ضغط الشغل مرتبط بخطر أعلى 15%، بينزل لـ 11% بعد تعديل نمط الحياة. أثر حقيقي بس صغير.</li>
+      <li>Whitehall II: السكر بيقفز في آخر 3 سنين بعد سنين من التغيرات الصامتة.</li>
+    </ul></div>
+    <div class="row"><b>مين المستفيد</b><p>محدش بفلوس. بس الخرافة مريحة نفسيًا: بتحوّل المرض لحاجة "حصلتلي" بدل حاجة "بتتبني"، فبتقلل الدافع للتغيير.</p></div>
+  </article>
+
+  <article class="myth" id="myth12">
+    <div class="myth-top"><span class="n">12</span><span class="pill v-myth">خرافة</span><span class="ev w">دليل ضعيف</span><h3>"العسل والسكر البني مسموحين لمريض السكر"</h3></div>
+    <div class="lens">الأساس اللي بيفكّها: <a href="#m1">الوحدة 1 (الجسم شايف طاقة)</a></div>
+    <div class="row"><b>الحتة الصح</b><p>العسل فيه كميات صغيرة من مركبات تانية، وفيه تجارب صغيرة بتلمّح لأثر أحسن شوية من السكر الأبيض على بعض المؤشرات <span class="mem">من الذاكرة</span>.</p></div>
+    <div class="row"><b>الحتة الغلط</b><p>العسل في الآخر جلوكوز وفركتوز ومية، والسكر البني سكر أبيض عليه شوية مولاس. معلقة العسل فيها سعرات وسكر أكتر من معلقة السكر. الجسم مش بيفرق كتير بين مصدر "طبيعي" ومصدر "صناعي" لنفس الجزيئات.</p></div>
+    <div class="row"><b>الأدلة</b><ul>
+      <li>تجارب العسل صغيرة وقصيرة وجودتها متفاوتة، ومفيش تجربة بتقول إنه آمن بكميات كبيرة لمريض السكر.</li>
+    </ul></div>
+    <div class="row"><b>مين المستفيد</b><p>بياعين العسل "الطبي" بأسعار عالية، والمنتجات اللي بتحط كلمة "طبيعي" على السكر.</p></div>
+  </article>
+
+  <article class="myth" id="myth13">
+    <div class="myth-top"><span class="n">13</span><span class="pill v-myth">خرافة</span><span class="ev s">دليل قوي</span><h3>"السكر وراثة، أبويا وأمي عندهم، يبقى مفيش فايدة"</h3></div>
+    <div class="lens">الأساس اللي بيفكّها: <a href="#m4">الوحدة 4 (الوراثة = قدرة المصنع)</a> و<a href="#m5">الوحدة 5</a></div>
+    <div class="row"><b>الحتة الصح</b><p>الوراثة قوية فعلًا: حوالي 72% في دراسات التوائم. واللي أهله عندهم سكر خطره أعلى بوضوح.</p></div>
+    <div class="row"><b>الحتة الغلط</b><p>الوراثة بتحدد قدرة المصنع، مش القدر. أقوى دليل إن تجربة DPP منعت 58% من حالات السكر عند ناس عالية الخطر، وده حصل حتى في الناس اللي عندهم أكتر جين خطر معروف <span class="mem">من الذاكرة: Florez 2006</span>. وعكسيًا، مصر نسبتها زادت أكتر من الضعف من غير ما الجينات تتغير.</p></div>
+    <div class="row"><b>الأدلة</b><ul>
+      <li>Willemsen 2015: توارث حوالي 72% في 34 ألف زوج توائم.</li>
+      <li>DPP, NEJM 2002: نمط الحياة قلل السكر 58%.</li>
+    </ul></div>
+    <div class="row"><b>مين المستفيد</b><p>محدش بفلوس. بس الخرافة بتخلي ناس كتير تستسلم في المرحلة اللي التدخل فيها أكتر حاجة بتفرق. واللي "عنده وراثة" محتاج يتحرك بدري، مش يستسلم بدري.</p></div>
+  </article>
+
+  <article class="myth" id="myth14">
+    <div class="myth-top"><span class="n">14</span><span class="pill v-partly">نص صح</span><span class="ev s">دليل قوي</span><h3>"أوزمبيك هو الحل النهائي" (والخرافة العكسية: "أوزمبيك غش")</h3></div>
+    <div class="lens">الأساس اللي بيفكّها: <a href="#m2">الوحدة 2 (الإنكريتينات)</a> و<a href="#m6">الوحدة 6 (ليه الحفاظ صعب)</a></div>
+    <div class="row"><b>الحتة الصح</b><p>أدوية GLP-1 فعالة جدًا: بتقلل الشهية، بتنزّل الوزن، بتحسّن السكر، وفيه تجربة كبيرة لقت إنها بتقلل الجلطات والأزمات القلبية حوالي 20% عند ناس عندهم سمنة ومرض قلب <span class="mem">من الذاكرة: SELECT 2023</span>. فـ"غش" غلط: ده دوا لمرض حقيقي.</p></div>
+    <div class="row"><b>الحتة الغلط</b><p>"نهائي" غلط. الدوا بيشتغل طول ما إنت عليه. لما بيتوقف، الجوع بيرجع والوزن بيرجع والفوايد بترجع.</p></div>
+    <div class="row"><b>الأدلة</b><ul>
+      <li>STEP 1 extension (Wilding 2022): الناس خسروا 17.3% من وزنهم في 68 أسبوع. بعد ما وقفوا الدوا بسنة رجّعوا 11.6 نقطة، يعني حوالي تلتين اللي خسروه، وصافي الخسارة بقى 5.6%. وتحسّن الضغط والسكر والدهون رجع ناحية البداية.</li>
+    </ul></div>
+    <div class="row"><b>مين المستفيد</b><p>شركات الأدوية (نوفو نورديسك وإيلي ليلي) من فكرة "الحل النهائي" ومن الاستخدام المزمن. وفي الاتجاه التاني، بياعين الدايت والمكملات من فكرة "أوزمبيك غش وخطر".</p></div>
+  </article>
+
+  <article class="myth" id="myth15">
+    <div class="myth-top"><span class="n">15</span><span class="pill v-myth">خرافة</span><span class="ev m">دليل متوسط</span><h3>"تحليل السكر الصايم طبيعي، يبقى أنا سليم"</h3></div>
+    <div class="lens">الأساس اللي بيفكّها: <a href="#m4">الوحدة 4 (السكر الصايم جرس إنذار متأخر)</a></div>
+    <div class="row"><b>الحتة الصح</b><p>سكر صايم طبيعي أحسن من عالي، وبيستبعد السكر المتقدم.</p></div>
+    <div class="row"><b>الحتة الغلط</b><p>السكر الصايم بيعلى متأخر، بعد سنين من المقاومة والتعويض. وفيه ناس سكرهم الصايم طبيعي وسكرهم بعد الأكل عالي. عشان كده السكر التراكمي (HbA1c) ومنحنى السكر بيكشفوا بدري أكتر، ومعاهم محيط الوسط والدهون الثلاثية.</p></div>
+    <div class="row"><b>الأدلة</b><ul>
+      <li>Whitehall II (Tabák 2009): السكر الصايم قفز في آخر 3 سنين بس قبل التشخيص.</li>
+      <li>أطلس IDF: 62% من مرضى السكر في مصر مش متشخصين.</li>
+    </ul></div>
+    <div class="row"><b>مين المستفيد</b><p>محدش بشكل مباشر. بس التحليل الأرخص بيدّي طمأنينة كاذبة، والتشخيص المتأخر معناه سنين من الضرر الصامت.</p></div>
+  </article>
+
+  <article class="myth" id="myth16">
+    <div class="myth-top"><span class="n">16</span><span class="pill v-partly">غير مثبت</span><span class="ev w">دليل ضعيف</span><h3>"الدايت كولا بتعمل سكر زي العادية"</h3></div>
+    <div class="lens">الأساس اللي بيفكّها: <a href="#m0">الوحدة 0 (السببية العكسية)</a></div>
+    <div class="row"><b>الحتة الصح</b><p>المحليات الصناعية مش "مشروب صحي"، وفيه تجربة لقت إن بعضها (السكارين والسكرالوز) غيّر بكتيريا الأمعاء واستجابة السكر عند بعض الناس <span class="mem">من الذاكرة: Suez 2022</span>. ومنظمة الصحة العالمية نصحت سنة 2023 إنها ماتتستخدمش للتخسيس <span class="mem">من الذاكرة</span>.</p></div>
+    <div class="row"><b>الحتة الغلط</b><p>الارتباط اللي بيخوّف الناس أغلبه سببية عكسية: الخطر نزل من 25% لـ 8% بمجرد تعديل الوزن. واستبدال المشروب المحلى بالسكر بالدايت غالبًا أحسن على المدى القصير، بس المية أحسن من الاتنين.</p></div>
+    <div class="row"><b>الأدلة</b><ul>
+      <li>Imamura, BMJ 2015: المشروبات الدايت +25% قبل تعديل الوزن، +8% بعده.</li>
+      <li>تجارب المحليات على الإنسان قصيرة (أسابيع)، ومفيش تجربة طويلة على حالات سكر فعلية.</li>
+    </ul></div>
+    <div class="row"><b>مين المستفيد</b><p>الاتنين: صناعة المحليات من "الدايت آمن تمامًا"، وصناعة السكر من "الدايت أوحش من السكر". والحقيقة إن الدليل لسه ضعيف في الاتجاهين.</p></div>
+  </article>
+
+  </div>
+</section>
+
+<!-- ============ MODULE 8 ============ -->
+<section class="module" id="m8">
+  <div class="mod-head">
+    <div class="eyebrow">الوحدة 8</div>
+    <h2>الصورة الكاملة في سلسلة واحدة</h2>
+    <p class="goal">كل اللي فات في رسمة واحدة. لو قدرت تشرحها لحد تاني من غير ما تبص، تبقى خلصت الكورس.</p>
+  </div>
+
+  <figure>
+    <div class="fig">
+      <div class="flow">
+        <div class="step"><b>فائض طاقة مزمن + قلة حركة</b><span>من أي مصدر: مشروبات، أكل مصنع، كميات. والبيئة هي اللي اتغيرت مش الجينات</span></div>
+        <div class="arrow" aria-hidden="true">↓</div>
+        <div class="step"><b>الخزان الآمن (الدهون تحت الجلد) يتملي</b><span>حجمه بيختلف من شخص لشخص: وراثة، عِرق، جنس</span></div>
+        <div class="arrow" aria-hidden="true">↓</div>
+        <div class="step"><b>فيضان: دهون في الكبد والعضلات والبنكرياس</b><span>DAG وإنزيمات PKC بتعطّل إشارة الإنسولين جوه الخلية</span></div>
+        <div class="arrow" aria-hidden="true">↓</div>
+        <div class="step"><b>مقاومة إنسولين (الكبد أولًا) ← البنكرياس يعوّض بإنسولين أعلى</b><span>السكر لسه طبيعي، والإنسولين العالي بيزود دهون الكبد (دورة الكبد)</span></div>
+        <div class="arrow" aria-hidden="true">↓</div>
+        <div class="step hot"><b>خلايا بيتا تتعب: دهون في البنكرياس + ضغط مستمر + وراثة</b><span>قدرة المصنع متحددة جزئيًا بالجينات. أغلب جينات السكر بتأثر هنا</span></div>
+        <div class="arrow" aria-hidden="true">↓</div>
+        <div class="step hot"><b>السكر يعلى بسرعة في آخر 3 سنين ← تشخيص</b><span>واللي بيتشخص، غالبًا بعد سنين من البداية</span></div>
+        <div class="arrow" aria-hidden="true">↑ ↓</div>
+        <div class="step"><b>الطريق العكسي: خسارة وزن كافية ← دهون الكبد تنزل في أيام ← دهون البنكرياس تنزل ← بيتا ترجع جزئيًا ← هدوء</b><span>أسهل في الأول. والحفاظ عليه هو المعركة</span></div>
+      </div>
+    </div>
+    <figcaption>النموذج الموحد. كل خرافة في الوحدة 7 بتاخد حلقة واحدة من السلسلة دي وتكبّرها لحد ما تغطي على الباقي.</figcaption>
+  </figure>
+
+  <div class="col">
+    <h3>إزاي كل خرافة بتكسر السلسلة</h3>
+    <ul class="plain">
+      <li><b>"السكر" و"الكربوهيدرات" و"الدهون":</b> بيحطوا مكوّن واحد مكان "فائض الطاقة" في أول حلقة.</li>
+      <li><b>"الإنسولين هو العدو":</b> بيقلب رد الفعل (التعويض) لسبب.</li>
+      <li><b>"الكيتو بيعالج":</b> بيخبّي آخر حلقة (السكر العالي) من غير ما يصلّح الحلقات اللي قبلها، إلا لو حصلت خسارة وزن.</li>
+      <li><b>"الرفيع مايجيلوش":</b> بيتجاهل حلقة الخزان الآمن وحلقة قدرة المصنع.</li>
+      <li><b>"وراثة ومفيش فايدة":</b> بيشوف حلقة المصنع بس وينسى إن الضغط ممكن يقل.</li>
+      <li><b>"مالوش رجوع":</b> بيتجاهل السهم العكسي.</li>
+      <li><b>"السكر الصايم طبيعي":</b> بيبص على آخر حلقة بس.</li>
+    </ul>
+
+    <h3>اللي لسه العلم مايعرفوش</h3>
+    <p>الكورس ده هيبقى ناقص لو قدّم الصورة كأنها مقفولة. دي أسئلة لسه مفتوحة:</p>
+    <ul class="plain">
+      <li>ليه الخزان الآمن بيختلف بالشكل ده بين الناس؟ الجينات المسؤولة عن ده لسه متفهمتش كويس.</li>
+      <li>هل الإنسولين العالي ممكن يكون سبب أولي عند فئة معينة؟ مش مستبعد، ومحتاج تجارب أحسن.</li>
+      <li>مفيش تجارب غذائية طويلة (سنين) على نتايج حقيقية زي العمى والفشل الكلوي والوفيات. أغلب اللي عندنا مؤشرات بديلة.</li>
+      <li>دور بكتيريا الأمعاء: كتير منه مبالغة إعلامية لحد دلوقتي، وقليل منه مثبت في الإنسان.</li>
+      <li>إزاي نخلّي الهدوء يستمر؟ ده أكبر سؤال عملي.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <div class="k">الاختبار النهائي</div>
+    <details><summary>واحد بيقول: "أنا قطعت السكر خالص، بس لسه بازيد وزن من الأكل التاني. أكيد مش هيجيلي سكر". إيه رأيك؟</summary><div class="ans">قطع السكر حاجة كويسة، بس فائض الطاقة من أي مصدر بيملي الخزان ويودّي دهون للكبد. اللي بيحميك هو إن الخزان مايفيضش، مش إن مصدر واحد يختفي.</div></details>
+    <details><summary>فيديو بيقول: "تجربة على 3 مرضى صاموا 72 ساعة وبطّلوا الإنسولين، يبقى الصيام علاج السكر". فكّكه بقايمة الفحص.</summary><div class="ans">حالات، أوطى السلم. مفيش مجموعة مقارنة. مقارنة بإيه؟ بتقليل سعرات عادي بنفس الكمية؟ لحد إمتى؟ مين بيبيع برنامج؟ والتجارب العشوائية بتقول إن الصيام زي تقليل السعرات العادي. وخطر الهبوط على اللي بياخد إنسولين حقيقي.</div></details>
+    <details><summary>اشرح في 3 جمل ليه واحد وزنه طبيعي ممكن يدخل في هدوء لما يخس 10%.</summary><div class="ans">كل واحد عنده حد شخصي للدهون. اللي وزنه طبيعي ممكن يكون عدّى حده ودهونه فاضت للكبد والبنكرياس. خسارة 10% بتنزّل الدهون دي تحت الحد، فالكبد والبنكرياس بيرجعوا يشتغلوا.</div></details>
+  </div>
+</section>
+
+<!-- ============ REFERENCES ============ -->
+<section class="module" id="refs">
+  <div class="mod-head">
+    <div class="eyebrow">المراجع</div>
+    <h2>المصادر ومستوى التأكد منها</h2>
+    <p class="goal">المراجع اللي عليها <span class="ok" style="font-family:var(--ui);font-size:.75rem;color:var(--true);border:1px solid currentColor;border-radius:4px;padding:0 5px">اتأكدت</span> رجعت لأرقامها في مصدر على النت وأنا بكتب الكورس. الباقي من معرفتي العامة: الاتجاه غالبًا صح، بس راجع الأرقام قبل النشر.</p>
+  </div>
+  <div class="refs">
+    <div><h4>الأساس والآلية</h4><ol>
+      <li>Petersen KF et al. Reversal of nonalcoholic hepatic steatosis, hepatic insulin resistance, and hyperglycemia by moderate weight reduction. Diabetes 2005. <span class="ok">اتأكدت</span></li>
+      <li>Lim EL, Taylor R et al. Reversal of type 2 diabetes: normalisation of beta cell function in association with decreased pancreas and liver triacylglycerol. Diabetologia 2011. <span class="ok">اتأكدت</span></li>
+      <li>Tabák AG et al. Trajectories of glycaemia, insulin sensitivity, and insulin secretion before diagnosis of type 2 diabetes (Whitehall II). Lancet 2009. <span class="ok">اتأكدت</span></li>
+      <li>Willemsen G et al. The concordance and heritability of type 2 diabetes in 34,166 twin pairs. Twin Res Hum Genet 2015. <span class="ok">اتأكدت</span></li>
+      <li>Ahlqvist E et al. Novel subgroups of adult-onset diabetes. Lancet Diabetes Endocrinol 2018. <span class="ok">اتأكدت</span> (النسب من الذاكرة)</li>
+      <li>Luukkonen PK et al. Saturated fat is more metabolically harmful for the human liver than unsaturated fat or simple sugars. Diabetes Care 2018. <span class="ok">اتأكدت</span></li>
+      <li>Samuel VT, Shulman GI. Mechanisms for insulin resistance: common threads and missing links. Cell 2012.</li>
+      <li>Petersen MC, Shulman GI. Mechanisms of insulin action and insulin resistance. Physiol Rev 2018.</li>
+      <li>Brown MS, Goldstein JL. Selective versus total insulin resistance. Cell Metab 2008.</li>
+      <li>Taylor R. Pathogenesis of type 2 diabetes: tracing the reverse route from cure to cause. Diabetologia 2008.</li>
+      <li>Kahn SE et al. Quantification of the relationship between insulin sensitivity and beta-cell function. Diabetes 1993.</li>
+      <li>Mahajan A et al. Fine-mapping type 2 diabetes loci to single-variant resolution. Nat Genet 2018.</li>
+      <li>Talchai C et al. Pancreatic β cell dedifferentiation as a mechanism of diabetic β cell failure. Cell 2012.</li>
+      <li>Spiegel K et al. Impact of sleep debt on metabolic and endocrine function. Lancet 1999.</li>
+    </ol></div>
+    <div><h4>الرجوع والمنع</h4><ol>
+      <li>Lean MEJ et al. Primary care-led weight management for remission of type 2 diabetes (DiRECT). Lancet 2018.</li>
+      <li>DiRECT 5-year extension. Lancet Diabetes Endocrinol 2024 (ملخص جامعة نيوكاسل). <span class="ok">اتأكدت</span></li>
+      <li>ReTUNE, Taylor R et al. Diabetic Medicine 2022 (ملخص جامعة نيوكاسل). <span class="ok">اتأكدت</span></li>
+      <li>Diabetes Prevention Program Research Group. Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin. NEJM 2002. <span class="ok">اتأكدت</span></li>
+      <li>Mingrone G et al. Metabolic surgery versus conventional medical therapy (10-year follow-up). Lancet 2021.</li>
+      <li>Riddle MC et al. Consensus report: definition and interpretation of remission in type 2 diabetes. Diabetes Care 2021.</li>
+    </ol></div>
+    <div><h4>الأكل والخرافات</h4><ol>
+      <li>Imamura F et al. Consumption of sugar sweetened beverages, artificially sweetened beverages, and fruit juice and incidence of type 2 diabetes. BMJ 2015. <span class="ok">اتأكدت</span></li>
+      <li>Goldenberg JZ et al. Efficacy and safety of low and very low carbohydrate diets for type 2 diabetes remission. BMJ 2021. <span class="ok">اتأكدت</span></li>
+      <li>Christensen AS et al. Effect of fruit restriction on glycemic control in patients with type 2 diabetes. Nutr J 2013. <span class="ok">اتأكدت</span></li>
+      <li>Allen RW et al. Cinnamon use in type 2 diabetes: an updated systematic review and meta-analysis. Ann Fam Med 2013. <span class="ok">اتأكدت</span></li>
+      <li>Berberine alone or in combination for T2DM: systematic review and meta-analysis. Front Pharmacol 2024. <span class="ok">اتأكدت</span></li>
+      <li>Nyberg ST et al. Job strain as a risk factor for type 2 diabetes. Diabetes Care 2014. <span class="ok">اتأكدت</span></li>
+      <li>Wilding JPH et al. Weight regain and cardiometabolic effects after withdrawal of semaglutide: STEP 1 extension. Diabetes Obes Metab 2022. <span class="ok">اتأكدت</span></li>
+      <li>Hall KD et al. Calorie for calorie, dietary fat restriction results in more body fat loss than carbohydrate restriction. Cell Metab 2015.</li>
+      <li>Hall KD et al. Energy expenditure and body composition changes after an isocaloric ketogenic diet. Am J Clin Nutr 2016.</li>
+      <li>Gardner CD et al. DIETFITS randomized clinical trial. JAMA 2018.</li>
+      <li>Hall KD et al. Ultra-processed diets cause excess calorie intake and weight gain. Cell Metab 2019.</li>
+      <li>Stanhope KL et al. Consuming fructose-, not glucose-sweetened beverages increases visceral adiposity. J Clin Invest 2009.</li>
+      <li>Muraki I et al. Fruit consumption and risk of type 2 diabetes. BMJ 2013.</li>
+      <li>Du H et al. Fresh fruit consumption in relation to incident diabetes (China Kadoorie Biobank). PLoS Med 2017.</li>
+      <li>Kearns CE et al. Sugar industry and coronary heart disease research. JAMA Intern Med 2016.</li>
+      <li>Carter S et al. Intermittent vs continuous energy restriction in type 2 diabetes. JAMA Netw Open 2018.</li>
+    </ol></div>
+    <div><h4>العلاج</h4><ol>
+      <li>UK Prospective Diabetes Study (UKPDS 33). Lancet 1998. <span class="ok">اتأكدت</span></li>
+      <li>Salpeter SR et al. Risk of fatal and nonfatal lactic acidosis with metformin use. Cochrane 2010. <span class="ok">اتأكدت</span></li>
+      <li>Holman RR et al. 10-year follow-up of intensive glucose control in type 2 diabetes. NEJM 2008.</li>
+      <li>ACCORD Study Group. Effects of intensive glucose lowering in type 2 diabetes. NEJM 2008.</li>
+      <li>Lincoff AM et al. Semaglutide and cardiovascular outcomes in obesity without diabetes (SELECT). NEJM 2023.</li>
+    </ol></div>
+    <div><h4>مصر</h4><ol>
+      <li>IDF Diabetes Atlas، صفحة مصر، تقديرات 2024. <span class="ok">اتأكدت</span></li>
+    </ol></div>
+  </div>
+</section>
+
+<footer>
+  اتكتب في 14 أكتوبر 2026 كجزء من مشروع فهم السكر ومقاومة الإنسولين. الكورس للتعليم مش بديل عن الدكتور، وخصوصًا قبل أي تغيير في أدوية السكر أو الصيام وإنت على إنسولين أو سلفونيل يوريا.
+</footer>
+</main>
+</div>
